@@ -97,5 +97,14 @@ class EndToEndTests(unittest.TestCase):
         self.assertEqual(r['selection']['T3']['winners'],['D1'])
         self.assertTrue(all(sum(sum(pair) for pair in x['allocation'])==12 for x in r['rows']))
 
+    def test_partial_occupancy_requires_explicit_opt_in(self):
+        p=demo();p['scenarios'][-1]['counts']={'P1':4,'P2':2,'P3':2}
+        with self.assertRaises(ValueError):validate(p)
+        p['allow_partial_occupancy']=True
+        result=analyze(p,False)
+        rows=[r for r in result['rows'] if r['scenario']==p['scenarios'][-1]['id']]
+        self.assertTrue(all(r['occupied_people']==8 and r['available_seats']==12 for r in rows))
+        self.assertTrue(all(sum(sum(pair) for pair in r['allocation'])==8 for r in rows))
+
 
 if __name__=='__main__': unittest.main()

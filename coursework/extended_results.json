@@ -1,0 +1,65 @@
+{
+  "input_sha256": "bc361fcd1a90f8c77f7e780289ab56f989b883e550ba6968464d771aa18f5210",
+  "development_winner": "D4",
+  "baseline_winner": [
+    "D6"
+  ],
+  "development_max_regret": {
+    "D0": 0.17539573105041006,
+    "D1": 0.11387560154858416,
+    "D2": 0.25709759864826587,
+    "D3": 0.14031658484032805,
+    "D4": 0.10523743863024605,
+    "D5": 0.16161626724847808,
+    "D6": 0.209356932948372
+  },
+  "holdout_max_regret": {
+    "D0": 0.2104748772604921,
+    "D1": 0.14322199709968175,
+    "D2": 0.2864439941993635,
+    "D3": 0.17539573105041006,
+    "D4": 0.14031658484032805,
+    "D5": 0.1909626627995757,
+    "D6": 0.23870332849946957
+  },
+  "relative_improvement_vs_existing": 0.3333333333333334,
+  "stress_winner_counts": {
+    "D4": 23,
+    "D5": 17,
+    "D6": 3,
+    "D1": 11,
+    "D0": 26,
+    "D3": 1
+  },
+  "stress_noninferiority_count": 54,
+  "stress_total": 81,
+  "action_rule": {
+    "status": "post_hoc_exploratory_not_pre_registered",
+    "primary": "compare holdout maximum regret of selected design against existing D0",
+    "minimum_relative_improvement": 0.2,
+    "stress_noninferiority_fraction": 0.75,
+    "stress_tolerance": 0.01,
+    "action": "Recommend redesign only if both checks pass; otherwise retain D0 pending site data"
+  },
+  "action_rule_passed": false,
+  "ppd_development_max_regret": {
+    "D0": 5.508433338869629,
+    "D1": 4.5639378596330955,
+    "D2": 10.597160768221748,
+    "D3": 4.4067466710957035,
+    "D4": 3.3050600033217776,
+    "D5": 6.575012162495981,
+    "D6": 8.586086465358864
+  },
+  "ppd_holdout_max_regret": {
+    "D0": 6.610120006643555,
+    "D1": 6.0332229085886535,
+    "D2": 12.066445817177305,
+    "D3": 5.508433338869629,
+    "D4": 4.4067466710957035,
+    "D5": 8.044297211451537,
+    "D6": 10.055371514314421
+  },
+  "ppd_development_winner": "D4",
+  "ppd_holdout_winner": "D4"
+}

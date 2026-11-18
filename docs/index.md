@@ -6,7 +6,7 @@ The software separates the physical decision (how many seats each zone receives)
 
 ## Try it in your browser
 
-Open the [interactive demonstration](demo.html) to change a user mix, evaluation weights and a custom three-zone capacity configuration. The demonstration runs entirely in the browser using constructed direct-score inputs; CBE PMV calculations and full research projects use the Python package.
+Open the [interactive thermal workbench](demo.html) to edit the zone temperatures, MRT, air speed, humidity, activity, clothing, PMV threshold, capacity alternatives and compositions. The page uses the pinned CBE formula in your browser and shows PMV/PPD for every profile-zone pair. Its starting thermal conditions are hypothetical; replace them with documented data before making a site-specific claim. The default case matches the revised seven-design A3 report.
 
 ## Workflow
 
@@ -20,4 +20,4 @@ For the expanded method, read the [General evaluation framework](general-framewo
 
 ## Citation and provenance
 
-The CBE comfort_tool implementation is bundled at commit `e809c965dd6eb2e785bf4851de2149c7a1d3c299` under GPL-2.0. Cite CBE separately for the underlying comfort calculation. PeopleComfort v0.2.0 is an ARCH7476 A3 prototype; see `CITATION.cff` for package metadata and `THIRD_PARTY_NOTICES.md` for source attribution. The present release has no DOI or remote repository.
+The CBE comfort_tool implementation is bundled at commit `e809c965dd6eb2e785bf4851de2149c7a1d3c299` under GPL-2.0. Cite CBE separately for the underlying comfort calculation. PeopleComfort v0.2.0 is an ARCH7476 A3 prototype; see `CITATION.cff` for package metadata and `THIRD_PARTY_NOTICES.md` for source attribution. The repository is https://github.com/Hey-Guobaorou/peoplecomfort; no DOI has been assigned.

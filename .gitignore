@@ -9,7 +9,7 @@ build/
 dist/
 release/
 results/
-verification/
+verification/*.log
 *.log
 .DS_Store
 Thumbs.db

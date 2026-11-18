@@ -79,3 +79,12 @@ class GeneralFrameworkTests(unittest.TestCase):
         r=analyze(p)
         self.assertEqual(len(r['rows']),15)
         self.assertEqual(r['selection']['selected_rule'],'minimax_regret')
+
+    def test_partial_occupancy_mean_uses_occupied_people(self):
+        p=self.load();p['allow_partial_occupancy']=True
+        p['scenarios'][-1]['counts']={'P1':3,'P2':3,'P3':2}
+        r=analyze(p)
+        row=next(x for x in r['rows'] if x['scenario']=='H1' and x['design']=='D0')
+        self.assertEqual(row['occupied_people'],8)
+        self.assertEqual(row['available_capacity'],12)
+        self.assertAlmostEqual(row['loss'],sum(p['metrics'][i]['weight']*row['metric_losses'][p['metrics'][i]['id']] for i in range(len(p['metrics']))))

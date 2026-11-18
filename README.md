@@ -21,9 +21,9 @@ Node must be on `PATH` for PMV mode, or specify `PEOPLECOMFORT_NODE`. From a che
 
 ## Browser demonstration
 
-Open `docs/demo.html` to try the standalone project workbench. Its structured editor displays every value in the example JSON: zone capacities and sources, profiles and access, criterion weights and score matrices, all design capacities, all scenario counts, plan provenance, allocation and decision rules, and optional score worlds. The full JSON panel permits additional schema fields and structural edits; import and download make projects rerunnable. The page uses constructed direct scores and runs without a Python server. CBE PMV calculations still require the local package.
+Open `docs/demo.html` to try the standalone thermal workbench. Its default A3 study contains two thermal zones, three activity/clothing profiles, seven capacity alternatives and thirteen compositions, including an eight-person occupancy check. The editor exposes every JSON value, including Ta, MRT, air speed, RH, met, clo, PMV threshold, capacities, sources and rules. It calculates PMV and PPD in the browser with the same pinned CBE JavaScript used by the Python package, then converts PMV to the declared exceedance loss and compares allocations. The input conditions are hypothetical until replaced by documented measurements or validated simulation. The full JSON panel supports import, editing and download.
 
-Rebuild the standalone page after editing `examples/general/project.json`, `docs/workbench.template.txt` or `docs/workbench.js` with `python docs/build_demo.py`, then run `python docs/build_docs.py` to update the embedded local-server documentation copy. The public workbench is also hosted at [hey-guobaorou.github.io/ARCH7476/peoplecomfort.html](https://hey-guobaorou.github.io/ARCH7476/peoplecomfort.html).
+Rebuild the standalone page after editing `examples/a3-thermal/project.json`, `docs/workbench.template.txt` or `docs/workbench.js` with `python docs/build_demo.py`, then run `python docs/build_docs.py` to update the embedded local-server documentation copy and bundled CBE files. The public workbench is also hosted at [hey-guobaorou.github.io/ARCH7476/peoplecomfort.html](https://hey-guobaorou.github.io/ARCH7476/peoplecomfort.html).
 
 ## Quick start
 
@@ -57,6 +57,7 @@ Open `http://127.0.0.1:8765/framework` for schema v2. The home page shows the or
 | Scenarios | User counts divided into development and holdout groups |
 | Metrics | Lower-is-better 0–1 losses with declared sources and weights summing to one |
 | Plan metadata | Optional source, kind and scale record; geometry is not computed |
+| Partial occupancy | `allow_partial_occupancy=true` permits 1..`total_people` users while physical capacity stays fixed; mean loss uses occupied people |
 
 For a given design and user mix, `allocation_rule=optimal` finds a minimum-loss complete assignment subject to capacity and allowed-zone constraints. `priority_first_fit` is a deterministic profile-order operating alternative. `capacity_policy=equal_total` controls total places across designs; `variable_total` permits different totals but does not price extra capacity. `decision_rule` chooses baseline, minimax regret or minimax loss while retaining all comparisons. Assignment rules are declared assumptions; observed seat or area choice may differ. Scores require evidence and a documented transformation from real measurements. The framework does not infer a valid score from a raw floor plan, temperature, dB or lux value.
 
@@ -67,6 +68,8 @@ The offline [documentation site](docs/index.html) follows Overview → Quick sta
 ```console
 python docs/build_docs.py
 ```
+
+The revised [A3 report source](coursework/A3_research_report.md) and PDF are built from the seven-design comparison in `examples/extended-a3/project.json`. Run `python coursework/analyze_extended.py` to recreate the result JSON, matrix CSV and figures, then `python coursework/build_pdf.py` to render the PDF. `verification/independent_pmv_check.py` compares six nominal CBE cases with separately maintained `pythermalcomfort==4.8.1`; install that optional verification dependency with `python -m pip install -r verification/requirements.txt`.
 
 ## Reproducibility and tests
 

@@ -17,4 +17,4 @@ peoplecomfort = "peoplecomfort.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-peoplecomfort = ["_cbe/*", "web/*", "web/docs/*", "web/docs/workflow/*", "web/docs/api/*", "web/docs/cli/*", "data/*"]
+peoplecomfort = ["_cbe/*", "web/*", "web/docs/*", "web/docs/cbe/*", "web/docs/workflow/*", "web/docs/api/*", "web/docs/cli/*", "data/*"]

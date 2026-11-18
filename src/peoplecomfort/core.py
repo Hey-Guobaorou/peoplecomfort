@@ -25,6 +25,8 @@ def validate(p):
     if not integer(p["total_people"]) or not 1 <= p["total_people"] <= 24:
         raise ValueError("total_people must be 1-24")
     n = p["total_people"]
+    if not isinstance(p.get("allow_partial_occupancy",False),bool):
+        raise ValueError("allow_partial_occupancy must be boolean")
     zids = {z["id"] for z in zones}
     for z in zones:
         if not integer(z["max_seats"]): raise ValueError("Invalid zone capacity")
@@ -35,8 +37,9 @@ def validate(p):
             raise ValueError("Unknown or empty allowed_zones")
     pids = {x["id"] for x in profiles}
     for s in scenarios:
-        if set(s["counts"]) != pids or not all(integer(v) for v in s["counts"].values()) or sum(s["counts"].values()) != n:
-            raise ValueError("Composition counts must be nonnegative integers summing to total_people")
+        occupied=sum(s["counts"].values())
+        if set(s["counts"]) != pids or not all(integer(v) for v in s["counts"].values()) or not (1 <= occupied <= n if p.get("allow_partial_occupancy",False) else occupied == n):
+            raise ValueError("Composition counts must be nonnegative integers totaling total_people, or 1..total_people when allow_partial_occupancy is true")
         if s["split"] not in ("development","holdout"):
             raise ValueError("Unknown scenario split")
     for d in designs:
@@ -106,7 +109,7 @@ def evaluate(p, matrix, limit):
         scenario_rows = []
         for d in p["designs"]:
             row = allocate(counts,[d["seats"][z["id"]] for z in zones],matrix,limit,allowed)
-            row.update(design=d["id"],scenario=s["id"],split=s["split"])
+            row.update(design=d["id"],scenario=s["id"],split=s["split"],occupied_people=sum(counts),available_seats=sum(d["seats"].values()))
             scenario_rows.append(row)
         feasible = [r["loss"] for r in scenario_rows if r["feasible"]]
         optimum = min(feasible) if feasible else None

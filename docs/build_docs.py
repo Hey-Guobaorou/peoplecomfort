@@ -59,6 +59,8 @@ def main():
  webdocs=ROOT.parent/'src/peoplecomfort/web/docs'
  for source_page in ROOT.rglob('*.html'):
   target=webdocs/source_page.relative_to(ROOT);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source_page,target)
+ for source_file in (ROOT/'cbe').iterdir():
+  target=webdocs/'cbe'/source_file.name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source_file,target)
  source.unlink()
  print('Built',len(list(ROOT.rglob('*.html'))),'offline documentation pages and workbench guide')
 if __name__=='__main__':main()

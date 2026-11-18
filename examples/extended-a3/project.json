@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "title": "Extended A3: two-zone capacity under uncertain occupancy",
+  "evidence_status": "hypothetical_method_test",
+  "total_people": 12,
+  "pmv_limit": 0.5,
+  "existing_design": "D0",
+  "baseline_scenario": "S0",
+  "zones": [
+    {
+      "id": "Z1",
+      "name": "Cooler zone",
+      "ta": 23.5,
+      "tr": 23.5,
+      "rh": 50,
+      "v": 0.1,
+      "max_seats": 9,
+      "source": "Constructed A3 environment; not a site measurement",
+      "evidence_status": "illustrative"
+    },
+    {
+      "id": "Z2",
+      "name": "Warmer zone",
+      "ta": 27.5,
+      "tr": 27.5,
+      "rh": 50,
+      "v": 0.1,
+      "max_seats": 9,
+      "source": "Constructed A3 environment; not a site measurement",
+      "evidence_status": "illustrative"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "P1",
+      "name": "Seated rest / light clothing",
+      "met": 1.0,
+      "clo": 0.5,
+      "allowed_zones": [
+        "Z1",
+        "Z2"
+      ],
+      "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+    },
+    {
+      "id": "P2",
+      "name": "Seated task / light clothing",
+      "met": 1.2,
+      "clo": 0.5,
+      "allowed_zones": [
+        "Z1",
+        "Z2"
+      ],
+      "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+    },
+    {
+      "id": "P3",
+      "name": "Seated task / warmer clothing",
+      "met": 1.2,
+      "clo": 0.8,
+      "allowed_zones": [
+        "Z1",
+        "Z2"
+      ],
+      "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+    }
+  ],
+  "designs": [
+    {
+      "id": "D0",
+      "name": "Cooler-zone emphasis: 9/3",
+      "seats": {
+        "Z1": 9,
+        "Z2": 3
+      }
+    },
+    {
+      "id": "D1",
+      "name": "Balanced configuration: 6/6",
+      "seats": {
+        "Z1": 6,
+        "Z2": 6
+      }
+    },
+    {
+      "id": "D2",
+      "name": "Warmer-zone emphasis: 3/9",
+      "seats": {
+        "Z1": 3,
+        "Z2": 9
+      }
+    },
+    {
+      "id": "D3",
+      "name": "Cool-zone 8/4",
+      "seats": {
+        "Z1": 8,
+        "Z2": 4
+      }
+    },
+    {
+      "id": "D4",
+      "name": "Cool-zone 7/5",
+      "seats": {
+        "Z1": 7,
+        "Z2": 5
+      }
+    },
+    {
+      "id": "D5",
+      "name": "Cool-zone 5/7",
+      "seats": {
+        "Z1": 5,
+        "Z2": 7
+      }
+    },
+    {
+      "id": "D6",
+      "name": "Cool-zone 4/8",
+      "seats": {
+        "Z1": 4,
+        "Z2": 8
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S0",
+      "name": "Development 8/2/2",
+      "split": "development",
+      "counts": {
+        "P1": 8,
+        "P2": 2,
+        "P3": 2
+      }
+    },
+    {
+      "id": "S1",
+      "name": "Development 2/8/2",
+      "split": "development",
+      "counts": {
+        "P1": 2,
+        "P2": 8,
+        "P3": 2
+      }
+    },
+    {
+      "id": "S2",
+      "name": "Development 2/2/8",
+      "split": "development",
+      "counts": {
+        "P1": 2,
+        "P2": 2,
+        "P3": 8
+      }
+    },
+    {
+      "id": "H0",
+      "name": "Holdout 6/3/3",
+      "split": "holdout",
+      "counts": {
+        "P1": 6,
+        "P2": 3,
+        "P3": 3
+      }
+    },
+    {
+      "id": "H1",
+      "name": "Holdout 3/6/3",
+      "split": "holdout",
+      "counts": {
+        "P1": 3,
+        "P2": 6,
+        "P3": 3
+      }
+    },
+    {
+      "id": "H2",
+      "name": "Holdout 3/3/6",
+      "split": "holdout",
+      "counts": {
+        "P1": 3,
+        "P2": 3,
+        "P3": 6
+      }
+    },
+    {
+      "id": "H3",
+      "name": "Holdout 5/2/5",
+      "split": "holdout",
+      "counts": {
+        "P1": 5,
+        "P2": 2,
+        "P3": 5
+      }
+    },
+    {
+      "id": "H4",
+      "name": "Holdout 2/5/5",
+      "split": "holdout",
+      "counts": {
+        "P1": 2,
+        "P2": 5,
+        "P3": 5
+      }
+    },
+    {
+      "id": "H5",
+      "name": "Holdout 5/5/2",
+      "split": "holdout",
+      "counts": {
+        "P1": 5,
+        "P2": 5,
+        "P3": 2
+      }
+    },
+    {
+      "id": "H6",
+      "name": "Outside envelope: 10/1/1",
+      "split": "holdout",
+      "counts": {
+        "P1": 10,
+        "P2": 1,
+        "P3": 1
+      }
+    },
+    {
+      "id": "H7",
+      "name": "Outside envelope: 0/0/12",
+      "split": "holdout",
+      "counts": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 12
+      }
+    },
+    {
+      "id": "H8",
+      "name": "Outside envelope: 12/0/0",
+      "split": "holdout",
+      "counts": {
+        "P1": 12,
+        "P2": 0,
+        "P3": 0
+      }
+    },
+    {
+      "id": "H9",
+      "name": "Partial occupancy: 4/2/2",
+      "split": "holdout",
+      "counts": {
+        "P1": 4,
+        "P2": 2,
+        "P3": 2
+      }
+    }
+  ],
+  "uncertainty": {
+    "temperature_offsets": [
+      -0.5,
+      0,
+      0.5
+    ],
+    "gradient_offsets": [
+      -0.5,
+      0,
+      0.5
+    ],
+    "clothing_offsets": [
+      -0.1,
+      0,
+      0.1
+    ],
+    "thresholds": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "source": "Exploratory grid, not a measurement-error distribution or confidence interval"
+  },
+  "allow_partial_occupancy": true,
+  "design_action_rule": {
+    "status": "post_hoc_exploratory_not_pre_registered",
+    "primary": "compare holdout maximum regret of selected design against existing D0",
+    "minimum_relative_improvement": 0.2,
+    "stress_noninferiority_fraction": 0.75,
+    "stress_tolerance": 0.01,
+    "action": "Recommend redesign only if both checks pass; otherwise retain D0 pending site data"
+  }
+}
