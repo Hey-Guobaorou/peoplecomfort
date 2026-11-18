@@ -19,6 +19,12 @@ peoplecomfort --help
 
 Node must be on `PATH` for PMV mode, or specify `PEOPLECOMFORT_NODE`. From a checkout, `python run.py` runs the same CLI without installing.
 
+## Browser demonstration
+
+Open `docs/demo.html` to try a standalone interactive example. It lets visitors change the development user mix, criterion weights and a fourth custom zone-capacity design. The page uses constructed direct scores and runs without a Python server. For GitHub Pages, configure **Settings → Pages → Deploy from a branch → main /docs** after pushing the repository. The resulting page will be `https://hey-guobaorou.github.io/peoplecomfort/demo.html` once Pages deployment succeeds.
+
+Rebuild the standalone page after editing `examples/general/project.json` or `docs/demo.js` with `python docs/build_demo.py`, then run `python docs/build_docs.py` to update the embedded local-server documentation copy.
+
 ## Quick start
 
 Run the three-zone, two-criterion example:

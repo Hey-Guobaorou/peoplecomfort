@@ -4,6 +4,10 @@ Shared interiors can contain different thermal conditions while their future use
 
 The software separates the physical decision (how many seats each zone receives) from the operating assumption (how people are assigned after their mix is known). It provides full input and result ledgers so a ranking can be inspected and rerun. The package is installed from a local repository checkout and is not on PyPI.
 
+## Try it in your browser
+
+Open the [interactive demonstration](demo.html) to change a user mix, evaluation weights and a custom three-zone capacity configuration. The demonstration runs entirely in the browser using constructed direct-score inputs; CBE PMV calculations and full research projects use the Python package.
+
 ## Workflow
 
 1. [Define the space and profiles](workflow/space.html) — specify two thermal zones, activities, clothing and access.

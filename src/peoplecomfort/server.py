@@ -6,7 +6,7 @@ from .core import analyze
 from .exports import archive
 
 ROOT=Path(__file__).parent
-DOC_PAGES={'general-framework.html','index.html','getting-started.html','workflows.html','workflow/space.html','workflow/scenarios.html','workflow/calculate.html','workflow/compare.html','workflow/output.html','api/index.html','api/functions.html','cli/index.html','cli/analyze.html','cli/serve.html'}
+DOC_PAGES={'demo.html','general-framework.html','index.html','getting-started.html','workflows.html','workflow/space.html','workflow/scenarios.html','workflow/calculate.html','workflow/compare.html','workflow/output.html','api/index.html','api/functions.html','cli/index.html','cli/analyze.html','cli/serve.html'}
 
 
 def serve(port=8765):
