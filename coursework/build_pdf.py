@@ -68,7 +68,7 @@ def main():
         'caption':ParagraphStyle('caption',fontName='Helvetica-Oblique',fontSize=7.8,leading=10,spaceAfter=8,textColor=colors.HexColor('#667c72'))}
     width=A4[0]-88;story=[]
     for kind,data in blocks(SOURCE.read_text(encoding='utf-8')):
-        if kind=='page':story.append(PageBreak())
+        if kind=='page':continue
         elif kind in ('h1','h2','h3','p'):story.append(Paragraph(inline(data),styles[kind]))
         elif kind=='code':story.append(Preformatted(data,styles['code']))
         elif kind=='image':
@@ -92,7 +92,7 @@ def main():
                 ('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),5),
                 ('RIGHTPADDING',(0,0),(-1,-1),5),('TOPPADDING',(0,0),(-1,-1),4),
                 ('BOTTOMPADDING',(0,0),(-1,-1),4)]))
-            story.extend([table,Spacer(1,8)])
+            story.extend([KeepTogether([table]) if data[0][0] in ('Audit item', 'AI-assisted claim or output') else table,Spacer(1,8)])
     def footer(canvas,doc):
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#cbdcd2'))
         canvas.line(44,38,A4[0]-44,38);canvas.setFont('Helvetica',8)
