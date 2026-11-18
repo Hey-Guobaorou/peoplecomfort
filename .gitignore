@@ -8,7 +8,8 @@ venv/
 build/
 dist/
 release/
-results/
+results/*
+!results/a3-submission/
 verification/*.log
 *.log
 .DS_Store

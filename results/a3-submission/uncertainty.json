@@ -1,0 +1,1460 @@
+[
+  {
+    "temperature_offset": 0.0,
+    "gradient_offset": 0.0,
+    "clothing_offset": 0.0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.21047487726049208,
+      "D1": 0.16822199709968175,
+      "D2": 0.33644399419936344,
+      "D3": 0.17539573105041004,
+      "D4": 0.14031658484032808,
+      "D5": 0.22429599613290904,
+      "D6": 0.28036999516613625
+    }
+  },
+  {
+    "temperature_offset": 0.0,
+    "gradient_offset": 0.0,
+    "clothing_offset": 0.0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2104748772604921,
+      "D1": 0.14322199709968175,
+      "D2": 0.2864439941993635,
+      "D3": 0.17539573105041006,
+      "D4": 0.14031658484032805,
+      "D5": 0.1909626627995757,
+      "D6": 0.23870332849946957
+    }
+  },
+  {
+    "temperature_offset": 0.0,
+    "gradient_offset": 0.0,
+    "clothing_offset": 0.0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.17536697735067372,
+      "D1": 0.11822199709968177,
+      "D2": 0.23644399419936352,
+      "D3": 0.1461391477922281,
+      "D4": 0.11691131823378247,
+      "D5": 0.1576293294662423,
+      "D6": 0.19703666183280288
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.41991446498310514,
+      "D1": 0.20995723249155254,
+      "D2": 0.15356470968705765,
+      "D3": 0.3499287208192543,
+      "D4": 0.27994297665540335,
+      "D5": 0.1399714883277017,
+      "D6": 0.12797059140588138
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D6"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.36991446498310515,
+      "D1": 0.18495723249155258,
+      "D2": 0.10356470968705767,
+      "D3": 0.3082620541525876,
+      "D4": 0.24660964332207008,
+      "D5": 0.12330482166103507,
+      "D6": 0.08630392473921472
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D6"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.31991446498310516,
+      "D1": 0.15995723249155255,
+      "D2": 0.05356470968705768,
+      "D3": 0.26659538748592093,
+      "D4": 0.21327630998873676,
+      "D5": 0.10663815499436838,
+      "D6": 0.053319077497184175
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2753669773506737,
+      "D1": 0.13768348867533686,
+      "D2": 0.2114215542197524,
+      "D3": 0.22947248112556137,
+      "D4": 0.18357798490044913,
+      "D5": 0.1409477028131682,
+      "D6": 0.17618462851646033
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2253669773506737,
+      "D1": 0.11268348867533684,
+      "D2": 0.16142155421975235,
+      "D3": 0.18780581445889474,
+      "D4": 0.1502446515671158,
+      "D5": 0.10761436947983491,
+      "D6": 0.13451796184979362
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.17536697735067372,
+      "D1": 0.08768348867533686,
+      "D2": 0.11142155421975236,
+      "D3": 0.1461391477922281,
+      "D4": 0.11691131823378247,
+      "D5": 0.07428103614650158,
+      "D6": 0.09285129518312696
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.1455136137818595,
+      "D1": 0.13130858249126678,
+      "D2": 0.2626171649825335,
+      "D3": 0.12126134481821627,
+      "D4": 0.09700907585457301,
+      "D5": 0.17507810998835574,
+      "D6": 0.21884763748544464
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.09551361378185952,
+      "D1": 0.10630858249126679,
+      "D2": 0.21261716498253358,
+      "D3": 0.07959467815154961,
+      "D4": 0.07087238832751122,
+      "D5": 0.14174477665502236,
+      "D6": 0.17718097081877798
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.04551361378185953,
+      "D1": 0.0813085824912668,
+      "D2": 0.1626171649825336,
+      "D3": 0.037928011484882944,
+      "D4": 0.05420572166084453,
+      "D5": 0.10841144332168906,
+      "D6": 0.13551430415211133
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.524504778216073,
+      "D1": 0.2622523891080365,
+      "D2": 0.21962694825676765,
+      "D3": 0.43708731518006083,
+      "D4": 0.34966985214404867,
+      "D5": 0.1748349260720244,
+      "D6": 0.18302245688063973
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.474504778216073,
+      "D1": 0.23725238910803648,
+      "D2": 0.1696269482567676,
+      "D3": 0.39542064851339415,
+      "D4": 0.31633651881071534,
+      "D5": 0.15816825940535767,
+      "D6": 0.14135579021397304
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D6"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.424504778216073,
+      "D1": 0.2122523891080365,
+      "D2": 0.11962694825676765,
+      "D3": 0.3537539818467275,
+      "D4": 0.283003185477382,
+      "D5": 0.141501592738691,
+      "D6": 0.09968912354730639
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.36641150847547593,
+      "D1": 0.183205754237738,
+      "D2": 0.2737834314824745,
+      "D3": 0.3053429237295633,
+      "D4": 0.24427433898365067,
+      "D5": 0.18252228765498302,
+      "D6": 0.22815285956872877
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.31641150847547594,
+      "D1": 0.158205754237738,
+      "D2": 0.22378343148247454,
+      "D3": 0.26367625706289666,
+      "D4": 0.21094100565031731,
+      "D5": 0.1491889543216497,
+      "D6": 0.1864861929020621
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.266411508475476,
+      "D1": 0.13320575423773798,
+      "D2": 0.17378343148247455,
+      "D3": 0.22200959039622997,
+      "D4": 0.17760767231698396,
+      "D5": 0.1158556209883164,
+      "D6": 0.14481952623539546
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.17165128738885582,
+      "D1": 0.16090974955541723,
+      "D2": 0.3218194991108345,
+      "D3": 0.14304273949071317,
+      "D4": 0.11443419159257057,
+      "D5": 0.21454633274055632,
+      "D6": 0.26818291592569543
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.17165128738885582,
+      "D1": 0.13590974955541724,
+      "D2": 0.2718194991108344,
+      "D3": 0.1430427394907132,
+      "D4": 0.11443419159257057,
+      "D5": 0.18121299940722296,
+      "D6": 0.22651624925902875
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.13058445494889726,
+      "D1": 0.11090974955541726,
+      "D2": 0.22181949911083443,
+      "D3": 0.10882037912408105,
+      "D4": 0.08705630329926484,
+      "D5": 0.14787966607388964,
+      "D6": 0.18484958259236206
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.629119345475537,
+      "D1": 0.3145596727377685,
+      "D2": 0.28586953930555214,
+      "D3": 0.5242661212296142,
+      "D4": 0.41941289698369133,
+      "D5": 0.20970644849184572,
+      "D6": 0.23822461608796006
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.579119345475537,
+      "D1": 0.2895596727377685,
+      "D2": 0.23586953930555216,
+      "D3": 0.4825994545629475,
+      "D4": 0.3860795636503581,
+      "D5": 0.19303978182517906,
+      "D6": 0.1965579494212934
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.5291193454755371,
+      "D1": 0.2645596727377685,
+      "D2": 0.18586953930555206,
+      "D3": 0.4409327878962808,
+      "D4": 0.3527462303170247,
+      "D5": 0.17637311515851228,
+      "D6": 0.15489128275462677
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.3959464413732129,
+      "D1": 0.19797322068660647,
+      "D2": 0.33644399419936344,
+      "D3": 0.32995536781101076,
+      "D4": 0.26396429424880863,
+      "D5": 0.22429599613290904,
+      "D6": 0.28036999516613625
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.395946441373213,
+      "D1": 0.1979732206866065,
+      "D2": 0.2864439941993635,
+      "D3": 0.32995536781101076,
+      "D4": 0.26396429424880863,
+      "D5": 0.1909626627995757,
+      "D6": 0.23870332849946957
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.3608385414633945,
+      "D1": 0.18041927073169728,
+      "D2": 0.23644399419936352,
+      "D3": 0.3006987845528287,
+      "D4": 0.24055902764226306,
+      "D5": 0.1576293294662423,
+      "D6": 0.19703666183280288
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.16873853025494367,
+      "D1": 0.19065358539600344,
+      "D2": 0.38130717079200693,
+      "D3": 0.14061544187911973,
+      "D4": 0.1271023902640023,
+      "D5": 0.25420478052800455,
+      "D6": 0.3177559756600058
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.16873853025494367,
+      "D1": 0.16565358539600344,
+      "D2": 0.3313071707920069,
+      "D3": 0.14061544187911973,
+      "D4": 0.11249235350329578,
+      "D5": 0.22087144719467122,
+      "D6": 0.27608930899333906
+    }
+  },
+  {
+    "temperature_offset": -0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.1687385302549437,
+      "D1": 0.14065358539600345,
+      "D2": 0.28130717079200684,
+      "D3": 0.14061544187911976,
+      "D4": 0.11249235350329581,
+      "D5": 0.18753811386133792,
+      "D6": 0.2344226423266724
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.31834397809511134,
+      "D1": 0.1591719890475557,
+      "D2": 0.21962694825676765,
+      "D3": 0.26528664841259275,
+      "D4": 0.21222931873007425,
+      "D5": 0.14641796550451175,
+      "D6": 0.18302245688063973
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.26834397809511135,
+      "D1": 0.13417198904755567,
+      "D2": 0.1696269482567676,
+      "D3": 0.22361998174592615,
+      "D4": 0.1788959853967409,
+      "D5": 0.11308463217117844,
+      "D6": 0.14135579021397304
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.21834397809511139,
+      "D1": 0.10917198904755569,
+      "D2": 0.11962694825676765,
+      "D3": 0.1819533150792595,
+      "D4": 0.14556265206340757,
+      "D5": 0.07975129883784512,
+      "D6": 0.09968912354730639
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.18402573568020048,
+      "D1": 0.13689171574123726,
+      "D2": 0.2737834314824745,
+      "D3": 0.15335477973350042,
+      "D4": 0.12268382378680032,
+      "D5": 0.18252228765498302,
+      "D6": 0.22815285956872877
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.13402573568020051,
+      "D1": 0.11189171574123728,
+      "D2": 0.22378343148247454,
+      "D3": 0.11168811306683374,
+      "D4": 0.08935049045346699,
+      "D5": 0.1491889543216497,
+      "D6": 0.1864861929020621
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0840257356802005,
+      "D1": 0.08689171574123727,
+      "D2": 0.17378343148247455,
+      "D3": 0.07002144640016708,
+      "D4": 0.05792781049415818,
+      "D5": 0.1158556209883164,
+      "D6": 0.14481952623539546
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0011961950341016214,
+      "D1": 0.16090974955541723,
+      "D2": 0.3218194991108345,
+      "D3": 0.053636583185139086,
+      "D4": 0.10727316637027814,
+      "D5": 0.21454633274055632,
+      "D6": 0.26818291592569543
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0011961950341016232,
+      "D1": 0.13590974955541724,
+      "D2": 0.2718194991108344,
+      "D3": 0.045303249851805755,
+      "D4": 0.09060649970361148,
+      "D5": 0.18121299940722296,
+      "D6": 0.22651624925902875
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.11090974955541726,
+      "D2": 0.22181949911083443,
+      "D3": 0.03696991651847241,
+      "D4": 0.0739398330369448,
+      "D5": 0.14787966607388964,
+      "D6": 0.18484958259236206
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.41991446498310514,
+      "D1": 0.20995723249155254,
+      "D2": 0.28586953930555214,
+      "D3": 0.3499287208192543,
+      "D4": 0.27994297665540335,
+      "D5": 0.19057969287036805,
+      "D6": 0.23822461608796006
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.36991446498310515,
+      "D1": 0.18495723249155258,
+      "D2": 0.23586953930555216,
+      "D3": 0.3082620541525876,
+      "D4": 0.24660964332207008,
+      "D5": 0.15724635953703475,
+      "D6": 0.1965579494212934
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.31991446498310516,
+      "D1": 0.15995723249155255,
+      "D2": 0.18586953930555206,
+      "D3": 0.26659538748592093,
+      "D4": 0.21327630998873676,
+      "D5": 0.12391302620370141,
+      "D6": 0.15489128275462677
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.19065358539600344,
+      "D2": 0.38130717079200693,
+      "D3": 0.06355119513200116,
+      "D4": 0.1271023902640023,
+      "D5": 0.25420478052800455,
+      "D6": 0.3177559756600058
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.16565358539600344,
+      "D2": 0.3313071707920069,
+      "D3": 0.055217861798667806,
+      "D4": 0.11043572359733567,
+      "D5": 0.22087144719467122,
+      "D6": 0.27608930899333906
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.14065358539600345,
+      "D2": 0.28130717079200684,
+      "D3": 0.046884528465334474,
+      "D4": 0.09376905693066898,
+      "D5": 0.18753811386133792,
+      "D6": 0.2344226423266724
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.4478038366716211,
+      "D1": 0.22390191833581058,
+      "D2": 0.35241570508424547,
+      "D3": 0.3731698638930176,
+      "D4": 0.2985358911144141,
+      "D5": 0.23494380338949697,
+      "D6": 0.2936797542368712
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.44780383667162105,
+      "D1": 0.22390191833581058,
+      "D2": 0.3024157050842454,
+      "D3": 0.37316986389301754,
+      "D4": 0.29853589111441403,
+      "D5": 0.20161047005616362,
+      "D6": 0.2520130875702045
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D5"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.424504778216073,
+      "D1": 0.2122523891080365,
+      "D2": 0.2524157050842454,
+      "D3": 0.3537539818467275,
+      "D4": 0.283003185477382,
+      "D5": 0.16827713672283026,
+      "D6": 0.21034642090353786
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2073854206163967,
+      "D1": 0.19975970673346896,
+      "D2": 0.39951941346693787,
+      "D3": 0.17282118384699724,
+      "D4": 0.13825694707759778,
+      "D5": 0.2663462756446253,
+      "D6": 0.33293284455578154
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2073854206163967,
+      "D1": 0.17475970673346897,
+      "D2": 0.34951941346693793,
+      "D3": 0.17282118384699724,
+      "D4": 0.13825694707759778,
+      "D5": 0.23301294231129194,
+      "D6": 0.29126617788911496
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.20738542061639667,
+      "D1": 0.14975970673346897,
+      "D2": 0.299519413466938,
+      "D3": 0.1728211838469972,
+      "D4": 0.13825694707759775,
+      "D5": 0.19967960897795858,
+      "D6": 0.2495995112224483
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.22059315835290286,
+      "D2": 0.44118631670580577,
+      "D3": 0.07353105278430097,
+      "D4": 0.14706210556860191,
+      "D5": 0.2941242111372039,
+      "D6": 0.3676552639215048
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.19559315835290284,
+      "D2": 0.39118631670580584,
+      "D3": 0.06519771945096767,
+      "D4": 0.1303954389019353,
+      "D5": 0.26079087780387045,
+      "D6": 0.3259885972548382
+    }
+  },
+  {
+    "temperature_offset": 0,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.17059315835290287,
+      "D2": 0.3411863167058057,
+      "D3": 0.05686438611763428,
+      "D4": 0.11372877223526859,
+      "D5": 0.2274575444705372,
+      "D6": 0.28432193058817146
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2202543182657578,
+      "D1": 0.14293476965277604,
+      "D2": 0.28586953930555214,
+      "D3": 0.18354526522146486,
+      "D4": 0.14683621217717188,
+      "D5": 0.19057969287036805,
+      "D6": 0.23822461608796006
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.17025431826575788,
+      "D1": 0.11793476965277605,
+      "D2": 0.23586953930555216,
+      "D3": 0.14187859855479817,
+      "D4": 0.11350287884383857,
+      "D5": 0.15724635953703475,
+      "D6": 0.1965579494212934
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.12025431826575785,
+      "D1": 0.09293476965277607,
+      "D2": 0.18586953930555206,
+      "D3": 0.10021193188813153,
+      "D4": 0.08016954551050523,
+      "D5": 0.12391302620370141,
+      "D6": 0.15489128275462677
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.027474246268165303,
+      "D1": 0.16822199709968175,
+      "D2": 0.33644399419936344,
+      "D3": 0.05607399903322724,
+      "D4": 0.11214799806645451,
+      "D5": 0.22429599613290904,
+      "D6": 0.28036999516613625
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D3"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.027474246268165303,
+      "D1": 0.14322199709968175,
+      "D2": 0.2864439941993635,
+      "D3": 0.04774066569989391,
+      "D4": 0.09548133139978784,
+      "D5": 0.1909626627995757,
+      "D6": 0.23870332849946957
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.11822199709968177,
+      "D2": 0.23644399419936352,
+      "D3": 0.03940733236656056,
+      "D4": 0.07881466473312114,
+      "D5": 0.1576293294662423,
+      "D6": 0.19703666183280288
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.17639522435081795,
+      "D2": 0.3527904487016358,
+      "D3": 0.058798408116939316,
+      "D4": 0.11759681623387863,
+      "D5": 0.2351936324677572,
+      "D6": 0.2939920405846965
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.16565358539600344,
+      "D2": 0.3313071707920069,
+      "D3": 0.055217861798667806,
+      "D4": 0.11043572359733567,
+      "D5": 0.22087144719467122,
+      "D6": 0.27608930899333906
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": -0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.14065358539600345,
+      "D2": 0.28130717079200684,
+      "D3": 0.046884528465334474,
+      "D4": 0.09376905693066898,
+      "D5": 0.18753811386133792,
+      "D6": 0.2344226423266724
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.24164303655065938,
+      "D1": 0.1762078525421227,
+      "D2": 0.35241570508424547,
+      "D3": 0.20136919712554952,
+      "D4": 0.16109535770043965,
+      "D5": 0.23494380338949697,
+      "D6": 0.2936797542368712
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.2416430365506594,
+      "D1": 0.1512078525421227,
+      "D2": 0.3024157050842454,
+      "D3": 0.20136919712554952,
+      "D4": 0.1610953577004396,
+      "D5": 0.20161047005616362,
+      "D6": 0.2520130875702045
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D1"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.21834397809511139,
+      "D1": 0.12620785254212272,
+      "D2": 0.2524157050842454,
+      "D3": 0.1819533150792595,
+      "D4": 0.14556265206340757,
+      "D5": 0.16827713672283026,
+      "D6": 0.21034642090353786
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.024999647821121185,
+      "D1": 0.19975970673346896,
+      "D2": 0.39951941346693787,
+      "D3": 0.0665865689111563,
+      "D4": 0.13317313782231263,
+      "D5": 0.2663462756446253,
+      "D6": 0.33293284455578154
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.02499964782112124,
+      "D1": 0.17475970673346897,
+      "D2": 0.34951941346693793,
+      "D3": 0.058253235577823,
+      "D4": 0.116506471155646,
+      "D5": 0.23301294231129194,
+      "D6": 0.29126617788911496
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.024999647821121185,
+      "D1": 0.14975970673346897,
+      "D2": 0.299519413466938,
+      "D3": 0.04991990224448967,
+      "D4": 0.0998398044889793,
+      "D5": 0.19967960897795858,
+      "D6": 0.2495995112224483
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.22059315835290286,
+      "D2": 0.44118631670580577,
+      "D3": 0.07353105278430097,
+      "D4": 0.14706210556860191,
+      "D5": 0.2941242111372039,
+      "D6": 0.3676552639215048
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.19559315835290284,
+      "D2": 0.39118631670580584,
+      "D3": 0.06519771945096767,
+      "D4": 0.1303954389019353,
+      "D5": 0.26079087780387045,
+      "D6": 0.3259885972548382
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.17059315835290287,
+      "D2": 0.3411863167058057,
+      "D3": 0.05686438611763428,
+      "D4": 0.11372877223526859,
+      "D5": 0.2274575444705372,
+      "D6": 0.28432193058817146
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.24210016833480547,
+      "D1": 0.20964619466616838,
+      "D2": 0.4192923893323367,
+      "D3": 0.20175014027900467,
+      "D4": 0.16140011222320366,
+      "D5": 0.27952825955489125,
+      "D6": 0.349410324443614
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.24210016833480552,
+      "D1": 0.18464619466616838,
+      "D2": 0.36929238933233677,
+      "D3": 0.20175014027900467,
+      "D4": 0.16140011222320366,
+      "D5": 0.24619492622155786,
+      "D6": 0.3077436577769473
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": -0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D4"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.24210016833480558,
+      "D1": 0.1596461946661684,
+      "D2": 0.31929238933233683,
+      "D3": 0.20175014027900462,
+      "D4": 0.1614001122232037,
+      "D5": 0.2128615928882245,
+      "D6": 0.2660769911102806
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.02183512122344966,
+      "D1": 0.23138707618373414,
+      "D2": 0.4627741523674682,
+      "D3": 0.07712902539457803,
+      "D4": 0.15425805078915608,
+      "D5": 0.3085161015783122,
+      "D6": 0.3856451269728902
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.02183512122344944,
+      "D1": 0.20638707618373417,
+      "D2": 0.4127741523674682,
+      "D3": 0.06879569206124467,
+      "D4": 0.13759138412248936,
+      "D5": 0.2751827682449789,
+      "D6": 0.3439784603062235
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.021835121223449494,
+      "D1": 0.18138707618373415,
+      "D2": 0.36277415236746824,
+      "D3": 0.06046235872791139,
+      "D4": 0.12092471745582276,
+      "D5": 0.24184943491164554,
+      "D6": 0.30231179363955696
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.4,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.25061641723606076,
+      "D2": 0.5012328344721215,
+      "D3": 0.0835388057453536,
+      "D4": 0.16707761149070716,
+      "D5": 0.3341552229814143,
+      "D6": 0.417694028726768
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.5,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.22561641723606077,
+      "D2": 0.4512328344721217,
+      "D3": 0.07520547241202027,
+      "D4": 0.15041094482404058,
+      "D5": 0.3008218896480811,
+      "D6": 0.37602736206010134
+    }
+  },
+  {
+    "temperature_offset": 0.5,
+    "gradient_offset": 0.5,
+    "clothing_offset": 0.1,
+    "pmv_limit": 0.6,
+    "development_winners": [
+      "D0"
+    ],
+    "holdout_regret_by_design": {
+      "D0": 0.0,
+      "D1": 0.2006164172360608,
+      "D2": 0.40123283447212155,
+      "D3": 0.06687213907868692,
+      "D4": 0.13374427815737386,
+      "D5": 0.26748855631474777,
+      "D6": 0.3343606953934346
+    }
+  }
+]

@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: "If you use PeopleComfort, cite this software and the CBE thermal comfort model separately where applicable."
 title: "PeopleComfort: a spatial capacity evaluation framework"
 authors:
-  - name: "PeopleComfort project"
+  - name: "Hey-Guobaorou"
+repository-code: "https://github.com/Hey-Guobaorou/peoplecomfort"
 version: 0.2.0
 date-released: 2026-11-18
 type: software

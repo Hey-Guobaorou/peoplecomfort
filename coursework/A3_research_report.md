@@ -1,7 +1,7 @@
 # ARCH7476 · Assignment 03
 # Thermal-zone capacity under changing user composition
 
-**PeopleComfort v0.2.0 | Revised workflow prototype | 18 November 2026**
+**PeopleComfort v0.2.0 | A3 submission tag: `a3-submission` | 18 November 2026**
 
 ## Four-line research summary
 
@@ -50,10 +50,11 @@ The original three-option pilot suggested 6/6 would be robust. Expanding the can
 
 ## 2. Workflow Artifact and reproducibility
 
-The public repository contains the engine, pinned CBE JavaScript and GPL-2.0 notice, both project JSON files, analysis script, independent PMV-check script, outputs and tests. Python 3.11+ and Node.js 18+ are required for the main workflow; this run used Python 3.12.12 and Node v24.11.1. The independent library is a verification dependency only.
+The public repository contains the engine, pinned CBE JavaScript and GPL-2.0 notice, both project JSON files, analysis script, independent PMV-check script, outputs and tests. The frozen submission is the Git tag `a3-submission`; after cloning, `git rev-parse 'a3-submission^{commit}'` prints its exact commit SHA. Check out that tag before rerunning. Python 3.11+ and Node.js 18+ are required for the main workflow; this run used Python 3.12.12 and Node v24.11.1. The independent library is a verification dependency only.
 
 ```console
 python -m pip install -e .
+python verification/smoke_check.py
 python -m unittest discover -s tests -v
 python coursework/analyze_extended.py
 python run.py analyze --project examples/extended-a3/project.json --out rerun-extended
@@ -72,7 +73,9 @@ python coursework/build_pdf.py
 | `examples/extended-a3/project.json` | All seven candidates, thirteen compositions, four stress dimensions and action-rule status |
 | `examples/a3-thermal/project.json` | Equivalent nominal inputs in the general schema used by the browser |
 | `coursework/analyze_extended.py`, `extended_results.json`, `extended_matrix.csv` | Rebuild and inspect the revised comparisons |
+| `verification/smoke_check.py`, `test_log.txt`, `AI_LOG.md` | One-line reproducibility check and audit records |
 | `verification/independent_pmv_check.py`, `independent_pmv_comparison.json` | Reproduce six-case cross-implementation PMV/PPD check |
+| `results/a3-submission/` | Committed CLI export from the frozen A3 input |
 | `tests/` | Capacity, assignment, split, partial occupancy and PMV integration tests |
 
 ## 3. Workflow Description
@@ -92,14 +95,14 @@ python coursework/build_pdf.py
 | 1. Input condition | One two-zone abstraction; twelve available places; CBE PMV inputs and access constraints |
 | 2. Variable / range | Z1 capacity 3-9, with Z2=12-Z1; 3 development mixes; 10 holdouts, one at 8/12 occupancy |
 | 3. Variants | D0, D3, D4, D1, D5, D6 and D2, covering all seven feasible splits |
-| 4. Evaluation metric | Mean exceedance `max(0, |PMV|-0.5)` per occupied person; report mean PPD in parallel |
+| 4. Evaluation metric | Mean exceedance `max(0, abs(PMV) - 0.5)` per occupied person; report mean PPD in parallel |
 | 5. Output | Full 91-cell matrix, allocations, PMV/PPD ledger, regrets and 81-condition stress record |
 | 6. Comparison rule | S0-only minimum versus maximum development regret; compare selected design with D0 on frozen holdouts and stress grid |
 | 7. Design action | Apply the explicit exploratory gate below; if it fails, retain D0 pending field evidence |
 
 For type *i* in zone *z*, `e(i,z)=max(0,abs(PMV(i,z))-0.5)`. The design/scenario loss is `sum assigned_count(i,z)*e(i,z) / occupied_people`. Thus H9 is divided by eight, not twelve. Regret in scenario *s* is the design's loss minus the lowest feasible candidate loss in *s*. The algorithm enumerates all integer allocations to two zones, with capacity, full assignment and allowed-zone constraints. Equal first-stage capacity controls resource count; empty seats are permitted at partial occupancy. The model assumes a manager can implement the allocation. It does not predict voluntary movement.
 
-**Decision threshold status.** No auditable record proves that the pilot's 20% threshold was frozen before its first holdout calculation. It must therefore be treated as post hoc. The revised action gate (at least 20% holdout improvement versus D0, plus D4 no worse than D0 by more than 0.01 regret in at least 75% of the 81 stress conditions) is also explicitly exploratory and was formulated during this revision. It is a transparent decision rule for this exercise, not a preregistered confirmatory test. A field study must date and freeze its gate before collecting or inspecting holdout outcomes.
+**Decision threshold status.** No auditable record proves that the pilot's 20% threshold was frozen before its first holdout calculation. It must therefore be treated as post hoc. The revised action gate is also exploratory: require at least 20% lower maximum regret over H0-H9 than D0; then require D4's maximum regret over H0-H9 in at least 75% of the 81 perturbed worlds to exceed D0's corresponding maximum regret by no more than 0.01. In each world, regret uses that world's seven-design scenario minimum. The thresholds were chosen during revision and are not preregistered. A field study must date and freeze its gate before collecting or inspecting holdout outcomes.
 
 ## 5. Prototype Output and design interpretation
 
@@ -119,9 +122,13 @@ The expanded candidate set changes the recommendation. S0-only selection is D6 (
 
 The headline comparison is D4 versus the existing D0: `(0.2105-0.1403)/0.2105 = 33.3%` lower maximum holdout regret. This is a reduction in *model opportunity loss*, not observed satisfaction. In the original restricted three-candidate pilot, D1 versus D0 reduced six-holdout maximum regret from 0.1052 to 0.0552 (about 47.5%). The former 72.19% headline compared D1 with the S0-only D2 and is not the relevant existing-design comparison. Candidate expansion changes all regret benchmarks, so the old and revised percentages must not be treated as the same experiment.
 
+Across all ten holdouts, D4 has lower regret than D0 in six and higher regret in four. Mean holdout regret is 0.0522 for D4 and 0.0719 for D0, a 27.5% reduction under equal scenario weighting. The maximum comparison is controlled by H6 and H8, both strongly P1-heavy; it therefore tests one important tail direction more than broad transfer. The mean and win count show the benefit is less uniform than the maximum alone suggests.
+
+The nominal development optimum is not well separated: D4's maximum regret is 0.1052 and D1's is 0.1139. With an exploratory 0.01 absolute near-optimality band, both D4 and D1 qualify. The worst development scenario is S0 for D0, D3 and D4; it is S2 for D1, D5, D6 and D2. Thus the minimax comparison is shaped by both P1-heavy and P3-heavy endpoints, even though D4's own maximum comes from S0.
+
 The extreme holdouts reveal asymmetry. H6=10/1/1 gives D0 loss 0.2704 and D1 loss 0.1651; H7=0/0/12 gives D0 0.1432 and D1 0.2864; H8=12/0/0 gives D0 0.3455 and D1 0.2403. H9=4/2/2 uses eight people and twelve available places, giving D0 0.0675 and D1 0.0149. This is a structural test of spare capacity, not evidence of actual occupancy probabilities.
 
-**Alternate continuous check.** Re-optimizing allocation on *mean CBE PPD* selects D4 on both development and extended holdout maximum-regret criteria. Development PPD-regret is 3.3051 percentage points for D4 versus 5.5084 for D0; holdout PPD-regret is 4.4067 versus 6.6101. This agreement reduces concern that the nominal ranking is solely an artifact of the ±0.5 PMV screening edge, but PPD is derived from the same PMV model and is not independent occupant feedback.
+**Alternate continuous check.** Re-optimizing allocation on *mean CBE PPD* selects D4 on both development and extended holdout maximum-regret criteria. Development PPD-regret is 3.3051 percentage points for D4 versus 5.5084 for D0; holdout PPD-regret is 4.4067 versus 6.6101. This reduces concern about the ±0.5 PMV screening edge, but PPD is a transformation of the same PMV model and the same extreme cases drive much of the comparison. It is a metric sensitivity check, not independent evidence of occupant comfort.
 
 ![Figure 3. Development winner counts over 81 conditions and the extended holdout comparison with D0.](figure_extended_decision.png)
 
@@ -145,7 +152,7 @@ The six nominal CBE outputs were independently recomputed with pythermalcomfort 
 
 ### 6.3 Uncertainty and design action
 
-The 81-condition grid combines common Ta/MRT offsets of -0.5/0/+0.5°C, opposing zone offsets of -0.5/0/+0.5°C, clothing offsets of -0.1/0/+0.1 clo and screening thresholds 0.4/0.5/0.6. These are equal-weighted grid points for diagnosis, not probabilities or calibrated instrument errors. D0 wins 26, D4 wins 23, D5 wins 17, D1 wins 11, D6 wins 3 and D3 wins 1 condition. D2 wins none. D4 has lower nominal holdout maximum regret than D0 by 33.3%, so the first exploratory gate passes. The second fails at 54/81 versus the required 61/81 or more. **Action: retain D0 as the provisional reference, collect real plan, thermal and use evidence, then freeze and rerun the decision rule.** This does not establish that D0 is comfortable or preferable in a real building.
+The 81-condition grid combines common Ta/MRT offsets of -0.5/0/+0.5°C, opposing zone offsets of -0.5/0/+0.5°C, clothing offsets of -0.1/0/+0.1 clo and screening thresholds 0.4/0.5/0.6. These are equal-weighted grid points for diagnosis, not probabilities or calibrated instrument errors. D0 wins 26, D4 wins 23, D5 wins 17, D1 wins 11, D6 wins 3 and D3 wins 1 condition. D2 wins none. D4 has lower nominal holdout maximum regret than D0 by 33.3%, so the first exploratory gate passes. The second fails at 54/81 versus the required 61/81 or more. Relaxing the regret tolerance from 0.01 to 0.02 still yields 54/81; relaxing the coverage gate from 75% to 70% still requires 57/81. Neither single relaxation changes the action. **Action: retain D0 as the provisional reference, collect real plan, thermal and use evidence, then freeze and rerun the decision rule.** This does not establish that D0 is comfortable or preferable in a real building.
 
 What remains untrusted: actual zone temperatures and radiant conditions, valid met/clo profiles for occupants, accessible/usable capacity, the behavioural plausibility of managed allocation, the omission of energy and construction cost, and the model's relation to observed thermal votes. A real A4 study should register the candidate set and gate, measure local conditions over relevant periods, map capacity and accessibility from a plan, observe occupancy and moves, record occupant votes, and compare predicted versus observed outcomes.
 

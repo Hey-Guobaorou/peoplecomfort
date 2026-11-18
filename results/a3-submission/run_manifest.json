@@ -1,0 +1,18 @@
+{
+  "python": "3.12.12",
+  "node": "v24.11.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "peoplecomfort": "0.2.0",
+  "input_sha256": "bc361fcd1a90f8c77f7e780289ab56f989b883e550ba6968464d771aa18f5210",
+  "engine": {
+    "repo": "https://github.com/CenterForTheBuiltEnvironment/comfort_tool",
+    "commit": "e809c965dd6eb2e785bf4851de2149c7a1d3c299",
+    "retrieved": "2026-11-18",
+    "mode": "CBE pmvElevatedAirspeed; self-generated air speed ON; wme=0",
+    "hashes": {
+      "comfort-models.js": "a8e35b004d507af7ec40347a23d8962c035e1f69f92477c2be2328a500caf0cb",
+      "psychrometrics.js": "e1e61337a54ab6275f72809317e4eafd7d2fe286fc820668b0ce8d109d4d2c55",
+      "util.js": "16bf95f60fed91f70806901da17f0c898ef228c4a8a41cd3f6f39c732911817b"
+    }
+  }
+}

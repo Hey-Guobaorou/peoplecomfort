@@ -22,9 +22,16 @@ OUTPUT=ROOT/'A3_research_report.pdf'
 
 def inline(value):
     value=html.escape(value).replace('–','-').replace('—','-').replace('×','x')
-    value=re.sub(r'`([^`]+)`',r'<font color="#216c5b">\1</font>',value)
+    codes=[]
+    def stash(match):
+        codes.append(match.group(1))
+        return f'CODETOKEN{len(codes)-1}END'
+    value=re.sub(r'`([^`]+)`',stash,value)
     value=re.sub(r'\*\*(.*?)\*\*',r'<b>\1</b>',value)
+    value=re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)',r'<i>\1</i>',value)
     value=re.sub(r'(https?://[^\s;]+)',lambda m:'<a href="'+m.group(1)+'">'+m.group(1)+'</a>',value)
+    for index,code in enumerate(codes):
+        value=value.replace(f'CODETOKEN{index}END',f'<font color="#216c5b">{code}</font>')
     return value
 
 
@@ -55,7 +62,7 @@ def main():
         'h1':ParagraphStyle('title',fontName='Helvetica-Bold',fontSize=19,leading=23,spaceAfter=9,textColor=colors.HexColor('#173d38'),keepWithNext=True),
         'h2':ParagraphStyle('heading',fontName='Helvetica-Bold',fontSize=12.5,leading=16,spaceBefore=10,spaceAfter=7,textColor=colors.HexColor('#216c5b'),keepWithNext=True),
         'h3':ParagraphStyle('subheading',fontName='Helvetica-Bold',fontSize=10.5,leading=14,spaceBefore=9,spaceAfter=6,textColor=colors.HexColor('#216c5b'),keepWithNext=True),
-        'p':ParagraphStyle('body',fontName='Helvetica',fontSize=8.8,leading=12.6,spaceAfter=7,textColor=colors.HexColor('#263b35'),splitLongWords=True),
+        'p':ParagraphStyle('body',fontName='Helvetica',fontSize=8.6,leading=12,spaceAfter=6,textColor=colors.HexColor('#263b35'),splitLongWords=True),
         'cell':ParagraphStyle('cell',fontName='Helvetica',fontSize=7.25,leading=9.6,textColor=colors.HexColor('#263b35'),splitLongWords=True),
         'code':ParagraphStyle('code',fontName='Courier',fontSize=7,leading=10,backColor=colors.HexColor('#f0f5f0'),borderPadding=8,spaceAfter=8),
         'caption':ParagraphStyle('caption',fontName='Helvetica-Oblique',fontSize=7.8,leading=10,spaceAfter=8,textColor=colors.HexColor('#667c72'))}
@@ -74,7 +81,7 @@ def main():
         elif kind=='table':
             if not data:continue
             col_count=len(data[0]);values=[[Paragraph(inline(c),styles['cell']) for c in row] for row in data]
-            if col_count==2:widths=[width*.23,width*.77]
+            if col_count==2:widths=[width*.43,width*.57] if data[0][0]=='Artifact' else [width*.23,width*.77]
             elif col_count==4:widths=[width*.16,width*.24,width*.28,width*.32]
             elif col_count==5:widths=[width*.16,width*.16,width*.20,width*.23,width*.25]
             else:widths=[width/col_count]*col_count
@@ -83,14 +90,14 @@ def main():
                 ('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,colors.HexColor('#f7faf7')]),
                 ('GRID',(0,0),(-1,-1),.25,colors.HexColor('#d2dfd7')),
                 ('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),5),
-                ('RIGHTPADDING',(0,0),(-1,-1),5),('TOPPADDING',(0,0),(-1,-1),5),
-                ('BOTTOMPADDING',(0,0),(-1,-1),5)]))
+                ('RIGHTPADDING',(0,0),(-1,-1),5),('TOPPADDING',(0,0),(-1,-1),4),
+                ('BOTTOMPADDING',(0,0),(-1,-1),4)]))
             story.extend([table,Spacer(1,8)])
     def footer(canvas,doc):
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#cbdcd2'))
         canvas.line(44,38,A4[0]-44,38);canvas.setFont('Helvetica',8)
         canvas.setFillColor(colors.HexColor('#6b8075'))
-        canvas.drawString(44,26,'PeopleComfort 0.2.0 | ARCH7476 A3 | Revised method prototype')
+        canvas.drawString(44,26,'PeopleComfort 0.2.0 | ARCH7476 A3 | a3-submission')
         canvas.drawRightString(A4[0]-44,26,str(doc.page));canvas.restoreState()
     doc=SimpleDocTemplate(str(OUTPUT),pagesize=A4,leftMargin=44,rightMargin=44,
         topMargin=42,bottomMargin=52,title='ARCH7476 A3 - Thermal-zone capacity under changing user composition',

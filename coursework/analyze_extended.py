@@ -90,11 +90,19 @@ def main():
     relative=(holdout[existing]-holdout[selected])/holdout[existing]
     rule=project['design_action_rule']
     comparable=sum(w['holdout_regret_by_design'][selected] <= w['holdout_regret_by_design'][existing]+rule['stress_tolerance'] for w in result['uncertainty'])
+    stress_counts={str(t):sum(w['holdout_regret_by_design'][selected] <= w['holdout_regret_by_design'][existing]+t for w in result['uncertainty']) for t in (0.01,0.02)}
+    holdout_rows=[r for r in result['rows'] if r['scenario'] in hold]
+    mean_holdout_regret={d:sum(r['regret'] for r in holdout_rows if r['design']==d)/len(hold) for d in ids}
+    holdout_pair_wins={selected:sum(next(r['regret'] for r in holdout_rows if r['scenario']==s and r['design']==selected)<next(r['regret'] for r in holdout_rows if r['scenario']==s and r['design']==existing)-1e-12 for s in hold)}
+    best_development=min(result['selection']['T3']['scores'].values())
+    near_optimal=[d for d,v in result['selection']['T3']['scores'].items() if v<=best_development+0.01+1e-12]
     action=relative >= rule['minimum_relative_improvement'] and comparable/len(result['uncertainty']) >= rule['stress_noninferiority_fraction']
     summary={'input_sha256':result['input_sha256'],'development_winner':selected,
              'baseline_winner':result['selection']['T2']['winners'],
              'development_max_regret':result['selection']['T3']['scores'],
              'holdout_max_regret':holdout,'relative_improvement_vs_existing':relative,
+             'mean_holdout_regret':mean_holdout_regret,'holdout_pair_wins':holdout_pair_wins,
+             'near_optimal_development_0_01':near_optimal,'stress_noninferiority_by_tolerance':stress_counts,
              'stress_winner_counts':dict(Counter(d for w in result['uncertainty'] for d in w['development_winners'])),
              'stress_noninferiority_count':comparable,'stress_total':len(result['uncertainty']),
              'action_rule':rule,'action_rule_passed':action,

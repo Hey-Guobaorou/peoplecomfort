@@ -1,0 +1,29 @@
+test_against_individual_enumeration (test_core.AllocationTests.test_against_individual_enumeration) ... ok
+test_equal_environment_gives_equal_objective (test_core.AllocationTests.test_equal_environment_gives_equal_objective) ... ok
+test_hand_calculated_minimax (test_core.AllocationTests.test_hand_calculated_minimax) ... ok
+test_manual_burden_and_denominator (test_core.AllocationTests.test_manual_burden_and_denominator) ... ok
+test_no_feasible_assignment_is_not_zero (test_core.AllocationTests.test_no_feasible_assignment_is_not_zero) ... ok
+test_ties_are_retained (test_core.AllocationTests.test_ties_are_retained) ... ok
+test_counts_capacity_and_missing_fields_rejected (test_core.EndToEndTests.test_counts_capacity_and_missing_fields_rejected) ... ok
+test_fixed_selection_stress_grid (test_core.EndToEndTests.test_fixed_selection_stress_grid) ... ok
+test_holdout_does_not_choose_training_winner (test_core.EndToEndTests.test_holdout_does_not_choose_training_winner) ... ok
+test_no_input_mutation_and_repeatability (test_core.EndToEndTests.test_no_input_mutation_and_repeatability) ... ok
+test_partial_occupancy_requires_explicit_opt_in (test_core.EndToEndTests.test_partial_occupancy_requires_explicit_opt_in) ... ok
+test_deployed_cbe_12_cases (test_core.ReferenceTests.test_deployed_cbe_12_cases) ... ok
+test_invalid_numeric_inputs_are_rejected (test_core.ReferenceTests.test_invalid_numeric_inputs_are_rejected) ... ok
+test_profile_corrections_are_once_only (test_core.ReferenceTests.test_profile_corrections_are_once_only) ... ok
+test_access_and_loss_ceiling (test_framework.GeneralFrameworkTests.test_access_and_loss_ceiling) ... ok
+test_design_specific_environment_and_plan_boundary (test_framework.GeneralFrameworkTests.test_design_specific_environment_and_plan_boundary) ... ok
+test_partial_occupancy_mean_uses_occupied_people (test_framework.GeneralFrameworkTests.test_partial_occupancy_mean_uses_occupied_people) ... ok
+test_priority_first_fit_can_differ_from_optimal (test_framework.GeneralFrameworkTests.test_priority_first_fit_can_differ_from_optimal) ... ok
+test_priority_rule_end_to_end (test_framework.GeneralFrameworkTests.test_priority_rule_end_to_end) ... ok
+test_small_independent_person_level_oracle (test_framework.GeneralFrameworkTests.test_small_independent_person_level_oracle) ... ok
+test_three_zone_two_metric_case_and_nonmutation (test_framework.GeneralFrameworkTests.test_three_zone_two_metric_case_and_nonmutation) ... ok
+test_variable_capacity_and_rule_selection (test_framework.GeneralFrameworkTests.test_variable_capacity_and_rule_selection) ... ok
+test_weight_and_score_validation (test_framework.GeneralFrameworkTests.test_weight_and_score_validation) ... ok
+test_worlds_and_holdout_separation (test_framework.GeneralFrameworkTests.test_worlds_and_holdout_separation) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.779s
+
+OK

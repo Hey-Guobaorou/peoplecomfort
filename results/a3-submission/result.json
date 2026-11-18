@@ -1,0 +1,4953 @@
+{
+  "schema_version": 1,
+  "software_version": "0.2.0",
+  "project": {
+    "schema_version": 1,
+    "title": "Extended A3: two-zone capacity under uncertain occupancy",
+    "evidence_status": "hypothetical_method_test",
+    "total_people": 12,
+    "pmv_limit": 0.5,
+    "existing_design": "D0",
+    "baseline_scenario": "S0",
+    "zones": [
+      {
+        "id": "Z1",
+        "name": "Cooler zone",
+        "ta": 23.5,
+        "tr": 23.5,
+        "rh": 50,
+        "v": 0.1,
+        "max_seats": 9,
+        "source": "Constructed A3 environment; not a site measurement",
+        "evidence_status": "illustrative"
+      },
+      {
+        "id": "Z2",
+        "name": "Warmer zone",
+        "ta": 27.5,
+        "tr": 27.5,
+        "rh": 50,
+        "v": 0.1,
+        "max_seats": 9,
+        "source": "Constructed A3 environment; not a site measurement",
+        "evidence_status": "illustrative"
+      }
+    ],
+    "profiles": [
+      {
+        "id": "P1",
+        "name": "Seated rest / light clothing",
+        "met": 1.0,
+        "clo": 0.5,
+        "allowed_zones": [
+          "Z1",
+          "Z2"
+        ],
+        "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+      },
+      {
+        "id": "P2",
+        "name": "Seated task / light clothing",
+        "met": 1.2,
+        "clo": 0.5,
+        "allowed_zones": [
+          "Z1",
+          "Z2"
+        ],
+        "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+      },
+      {
+        "id": "P3",
+        "name": "Seated task / warmer clothing",
+        "met": 1.2,
+        "clo": 0.8,
+        "allowed_zones": [
+          "Z1",
+          "Z2"
+        ],
+        "source": "Exploratory activity/clothing profile; no demographic or personal calibration"
+      }
+    ],
+    "designs": [
+      {
+        "id": "D0",
+        "name": "Cooler-zone emphasis: 9/3",
+        "seats": {
+          "Z1": 9,
+          "Z2": 3
+        }
+      },
+      {
+        "id": "D1",
+        "name": "Balanced configuration: 6/6",
+        "seats": {
+          "Z1": 6,
+          "Z2": 6
+        }
+      },
+      {
+        "id": "D2",
+        "name": "Warmer-zone emphasis: 3/9",
+        "seats": {
+          "Z1": 3,
+          "Z2": 9
+        }
+      },
+      {
+        "id": "D3",
+        "name": "Cool-zone 8/4",
+        "seats": {
+          "Z1": 8,
+          "Z2": 4
+        }
+      },
+      {
+        "id": "D4",
+        "name": "Cool-zone 7/5",
+        "seats": {
+          "Z1": 7,
+          "Z2": 5
+        }
+      },
+      {
+        "id": "D5",
+        "name": "Cool-zone 5/7",
+        "seats": {
+          "Z1": 5,
+          "Z2": 7
+        }
+      },
+      {
+        "id": "D6",
+        "name": "Cool-zone 4/8",
+        "seats": {
+          "Z1": 4,
+          "Z2": 8
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "S0",
+        "name": "Development 8/2/2",
+        "split": "development",
+        "counts": {
+          "P1": 8,
+          "P2": 2,
+          "P3": 2
+        }
+      },
+      {
+        "id": "S1",
+        "name": "Development 2/8/2",
+        "split": "development",
+        "counts": {
+          "P1": 2,
+          "P2": 8,
+          "P3": 2
+        }
+      },
+      {
+        "id": "S2",
+        "name": "Development 2/2/8",
+        "split": "development",
+        "counts": {
+          "P1": 2,
+          "P2": 2,
+          "P3": 8
+        }
+      },
+      {
+        "id": "H0",
+        "name": "Holdout 6/3/3",
+        "split": "holdout",
+        "counts": {
+          "P1": 6,
+          "P2": 3,
+          "P3": 3
+        }
+      },
+      {
+        "id": "H1",
+        "name": "Holdout 3/6/3",
+        "split": "holdout",
+        "counts": {
+          "P1": 3,
+          "P2": 6,
+          "P3": 3
+        }
+      },
+      {
+        "id": "H2",
+        "name": "Holdout 3/3/6",
+        "split": "holdout",
+        "counts": {
+          "P1": 3,
+          "P2": 3,
+          "P3": 6
+        }
+      },
+      {
+        "id": "H3",
+        "name": "Holdout 5/2/5",
+        "split": "holdout",
+        "counts": {
+          "P1": 5,
+          "P2": 2,
+          "P3": 5
+        }
+      },
+      {
+        "id": "H4",
+        "name": "Holdout 2/5/5",
+        "split": "holdout",
+        "counts": {
+          "P1": 2,
+          "P2": 5,
+          "P3": 5
+        }
+      },
+      {
+        "id": "H5",
+        "name": "Holdout 5/5/2",
+        "split": "holdout",
+        "counts": {
+          "P1": 5,
+          "P2": 5,
+          "P3": 2
+        }
+      },
+      {
+        "id": "H6",
+        "name": "Outside envelope: 10/1/1",
+        "split": "holdout",
+        "counts": {
+          "P1": 10,
+          "P2": 1,
+          "P3": 1
+        }
+      },
+      {
+        "id": "H7",
+        "name": "Outside envelope: 0/0/12",
+        "split": "holdout",
+        "counts": {
+          "P1": 0,
+          "P2": 0,
+          "P3": 12
+        }
+      },
+      {
+        "id": "H8",
+        "name": "Outside envelope: 12/0/0",
+        "split": "holdout",
+        "counts": {
+          "P1": 12,
+          "P2": 0,
+          "P3": 0
+        }
+      },
+      {
+        "id": "H9",
+        "name": "Partial occupancy: 4/2/2",
+        "split": "holdout",
+        "counts": {
+          "P1": 4,
+          "P2": 2,
+          "P3": 2
+        }
+      }
+    ],
+    "uncertainty": {
+      "temperature_offsets": [
+        -0.5,
+        0,
+        0.5
+      ],
+      "gradient_offsets": [
+        -0.5,
+        0,
+        0.5
+      ],
+      "clothing_offsets": [
+        -0.1,
+        0,
+        0.1
+      ],
+      "thresholds": [
+        0.4,
+        0.5,
+        0.6
+      ],
+      "source": "Exploratory grid, not a measurement-error distribution or confidence interval"
+    },
+    "allow_partial_occupancy": true,
+    "design_action_rule": {
+      "status": "post_hoc_exploratory_not_pre_registered",
+      "primary": "compare holdout maximum regret of selected design against existing D0",
+      "minimum_relative_improvement": 0.2,
+      "stress_noninferiority_fraction": 0.75,
+      "stress_tolerance": 0.01,
+      "action": "Recommend redesign only if both checks pass; otherwise retain D0 pending site data"
+    }
+  },
+  "input_sha256": "bc361fcd1a90f8c77f7e780289ab56f989b883e550ba6968464d771aa18f5210",
+  "engine": {
+    "repo": "https://github.com/CenterForTheBuiltEnvironment/comfort_tool",
+    "commit": "e809c965dd6eb2e785bf4851de2149c7a1d3c299",
+    "retrieved": "2026-11-18",
+    "mode": "CBE pmvElevatedAirspeed; self-generated air speed ON; wme=0",
+    "hashes": {
+      "comfort-models.js": "a8e35b004d507af7ec40347a23d8962c035e1f69f92477c2be2328a500caf0cb",
+      "psychrometrics.js": "e1e61337a54ab6275f72809317e4eafd7d2fe286fc820668b0ce8d109d4d2c55",
+      "util.js": "16bf95f60fed91f70806901da17f0c898ef228c4a8a41cd3f6f39c732911817b"
+    }
+  },
+  "thermal_ledger": [
+    {
+      "type": "P1",
+      "zone": "Z1",
+      "input": {
+        "ta": 23.5,
+        "tr": 23.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.0,
+        "clo": 0.5
+      },
+      "output": {
+        "pmv": -0.9507339547013474,
+        "ppd": 24.091909803153868,
+        "set": 22.438487773913163,
+        "ta_adj": 23.5,
+        "tr_adj": 23.5,
+        "cooling_effect": 0,
+        "relative_air_speed": 0.1,
+        "dynamic_clothing": 0.5
+      }
+    },
+    {
+      "type": "P1",
+      "zone": "Z2",
+      "input": {
+        "ta": 27.5,
+        "tr": 27.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.0,
+        "clo": 0.5
+      },
+      "output": {
+        "pmv": 0.5297842001803632,
+        "ppd": 10.871669789866758,
+        "set": 26.658372949324615,
+        "ta_adj": 27.5,
+        "tr_adj": 27.5,
+        "cooling_effect": 0,
+        "relative_air_speed": 0.1,
+        "dynamic_clothing": 0.5
+      }
+    },
+    {
+      "type": "P2",
+      "zone": "Z1",
+      "input": {
+        "ta": 23.5,
+        "tr": 23.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.2,
+        "clo": 0.5
+      },
+      "output": {
+        "pmv": -0.4606425279363382,
+        "ppd": 9.429309277480968,
+        "set": 22.795725215553833,
+        "ta_adj": 23.16233426292834,
+        "tr_adj": 23.16233426292834,
+        "cooling_effect": 0.3376657370716602,
+        "relative_air_speed": 0.15999999999999998,
+        "dynamic_clothing": 0.5
+      }
+    },
+    {
+      "type": "P2",
+      "zone": "Z2",
+      "input": {
+        "ta": 27.5,
+        "tr": 27.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.2,
+        "clo": 0.5
+      },
+      "output": {
+        "pmv": 0.7207312417855558,
+        "ppd": 15.93078032436891,
+        "set": 26.78366721077664,
+        "ta_adj": 27.114601573509546,
+        "tr_adj": 27.114601573509546,
+        "cooling_effect": 0.3853984264904554,
+        "relative_air_speed": 0.15999999999999998,
+        "dynamic_clothing": 0.5
+      }
+    },
+    {
+      "type": "P3",
+      "zone": "Z1",
+      "input": {
+        "ta": 23.5,
+        "tr": 23.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.2,
+        "clo": 0.8
+      },
+      "output": {
+        "pmv": 0.0863111146655209,
+        "ppd": 5.1542620154648375,
+        "set": 25.172097793597892,
+        "ta_adj": 23.15422869897526,
+        "tr_adj": 23.15422869897526,
+        "cooling_effect": 0.3457713010247406,
+        "relative_air_speed": 0.15999999999999998,
+        "dynamic_clothing": 0.8
+      }
+    },
+    {
+      "type": "P3",
+      "zone": "Z2",
+      "input": {
+        "ta": 27.5,
+        "tr": 27.5,
+        "rh": 50,
+        "v": 0.1,
+        "met": 1.2,
+        "clo": 0.8
+      },
+      "output": {
+        "pmv": 1.072887988398727,
+        "ppd": 29.287153649819444,
+        "set": 28.968875020884468,
+        "ta_adj": 27.128869004913412,
+        "tr_adj": 27.128869004913412,
+        "cooling_effect": 0.37113099508658864,
+        "relative_air_speed": 0.15999999999999998,
+        "dynamic_clothing": 0.8
+      }
+    }
+  ],
+  "rows": [
+    {
+      "feasible": true,
+      "loss": 0.19525186450398554,
+      "worst_type_loss": 0.2928777967559783,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.2928777967559783,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 8,
+      "design": "D0",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.17539573105041006
+    },
+    {
+      "feasible": true,
+      "loss": 0.09001442587373949,
+      "worst_type_loss": 0.13502163881060925,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.13502163881060925,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D1",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.03825040360237179,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 8,
+      "design": "D2",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.16017271829390353,
+      "worst_type_loss": 0.24025907744085528,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          4,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.24025907744085528,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D3",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.14031658484032805
+    },
+    {
+      "feasible": true,
+      "loss": 0.12509357208382152,
+      "worst_type_loss": 0.18764035812573227,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.18764035812573227,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D4",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.10523743863024605
+    },
+    {
+      "feasible": true,
+      "loss": 0.05493527966365749,
+      "worst_type_loss": 0.08240291949548623,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.08240291949548623,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D5",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008201
+    },
+    {
+      "feasible": true,
+      "loss": 0.01985613345357547,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D6",
+      "scenario": "S0",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.023358303512190186,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.027591405223194476,
+        0.0
+      ],
+      "feasible_allocations": 8,
+      "design": "D0",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.07854111395857914,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D1",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.05518281044638895
+    },
+    {
+      "feasible": true,
+      "loss": 0.13372392440496808,
+      "worst_type_loss": 0.19313983656236133,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.19313983656236133,
+        0.0
+      ],
+      "feasible_allocations": 8,
+      "design": "D2",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.11036562089277789
+    },
+    {
+      "feasible": true,
+      "loss": 0.0417525736609865,
+      "worst_type_loss": 0.05518281044638895,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.05518281044638895,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D3",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.06014684380978282,
+      "worst_type_loss": 0.08277421566958343,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.08277421566958343,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D4",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759264
+    },
+    {
+      "feasible": true,
+      "loss": 0.09693538410737546,
+      "worst_type_loss": 0.13795702611597238,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.13795702611597238,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D5",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07357708059518527
+    },
+    {
+      "feasible": true,
+      "loss": 0.11532965425617177,
+      "worst_type_loss": 0.16554843133916686,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.16554843133916686,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D6",
+      "scenario": "S1",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.09197135074398158
+    },
+    {
+      "feasible": true,
+      "loss": 0.023358303512190186,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 8,
+      "design": "D0",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.13723390506077435,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.14322199709968175
+      ],
+      "feasible_allocations": 9,
+      "design": "D1",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.11387560154858416
+    },
+    {
+      "feasible": true,
+      "loss": 0.28045590216045607,
+      "worst_type_loss": 0.3580549927492044,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.3580549927492044
+      ],
+      "feasible_allocations": 8,
+      "design": "D2",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.25709759864826587
+    },
+    {
+      "feasible": true,
+      "loss": 0.0417525736609865,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D3",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.08949323936088042,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.07161099854984088
+      ],
+      "feasible_allocations": 9,
+      "design": "D4",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.06613493584869024
+    },
+    {
+      "feasible": true,
+      "loss": 0.18497457076066826,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.21483299564952263
+      ],
+      "feasible_allocations": 9,
+      "design": "D5",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.16161626724847808
+    },
+    {
+      "feasible": true,
+      "loss": 0.23271523646056216,
+      "worst_type_loss": 0.2864439941993635,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.2864439941993635
+      ],
+      "feasible_allocations": 9,
+      "design": "D6",
+      "scenario": "S2",
+      "split": "development",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.209356932948372
+    },
+    {
+      "feasible": true,
+      "loss": 0.12012953872042764,
+      "worst_type_loss": 0.24025907744085528,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.24025907744085528,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 10,
+      "design": "D0",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.10523743863024604
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.07007491053657056,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 10,
+      "design": "D2",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.05518281044638895
+    },
+    {
+      "feasible": true,
+      "loss": 0.08505039251034563,
+      "worst_type_loss": 0.17010078502069126,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.17010078502069126,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 13,
+      "design": "D3",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.049971246300263616,
+      "worst_type_loss": 0.09994249260052723,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.09994249260052723,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008201
+    },
+    {
+      "feasible": true,
+      "loss": 0.03328637023897792,
+      "worst_type_loss": 0.07357708059518527,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.07357708059518527,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.01839427014879632
+    },
+    {
+      "feasible": true,
+      "loss": 0.051680640387774236,
+      "worst_type_loss": 0.14715416119037053,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.14715416119037053,
+        0.0
+      ],
+      "feasible_allocations": 13,
+      "design": "D6",
+      "scenario": "H0",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759263
+    },
+    {
+      "feasible": true,
+      "loss": 0.007446050045090802,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 10,
+      "design": "D0",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.06262886049147975,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.05518281044638895
+    },
+    {
+      "feasible": true,
+      "loss": 0.1178116709378687,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 10,
+      "design": "D2",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.1103656208927779
+    },
+    {
+      "feasible": true,
+      "loss": 0.025840320193887118,
+      "worst_type_loss": 0.03678854029759263,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.03678854029759263,
+        0.0
+      ],
+      "feasible_allocations": 13,
+      "design": "D3",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.044234590342683434,
+      "worst_type_loss": 0.07357708059518527,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.07357708059518527,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759263
+    },
+    {
+      "feasible": true,
+      "loss": 0.08102313064027607,
+      "worst_type_loss": 0.14715416119037053,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.14715416119037053,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07357708059518527
+    },
+    {
+      "feasible": true,
+      "loss": 0.0994174007890724,
+      "worst_type_loss": 0.18394270148796318,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.18394270148796318,
+        0.0
+      ],
+      "feasible_allocations": 13,
+      "design": "D6",
+      "scenario": "H1",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.09197135074398159
+    },
+    {
+      "feasible": true,
+      "loss": 0.007446050045090802,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 10,
+      "design": "D0",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.06262886049147975,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.05518281044638895
+    },
+    {
+      "feasible": true,
+      "loss": 0.2058508575911615,
+      "worst_type_loss": 0.2864439941993635,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.2864439941993635
+      ],
+      "feasible_allocations": 10,
+      "design": "D2",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.1984048075460707
+    },
+    {
+      "feasible": true,
+      "loss": 0.025840320193887118,
+      "worst_type_loss": 0.07357708059518527,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.07357708059518527,
+        0.0
+      ],
+      "feasible_allocations": 13,
+      "design": "D3",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.044234590342683434,
+      "worst_type_loss": 0.14715416119037053,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.14715416119037053,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759263
+    },
+    {
+      "feasible": true,
+      "loss": 0.11036952619137368,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.09548133139978783
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.10292347614628287
+    },
+    {
+      "feasible": true,
+      "loss": 0.1581101918912676,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.19096266279957566
+      ],
+      "feasible_allocations": 13,
+      "design": "D6",
+      "scenario": "H2",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.1506641418461768
+    },
+    {
+      "feasible": true,
+      "loss": 0.08256837582864869,
+      "worst_type_loss": 0.19816410198875686,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.19816410198875686,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D0",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.03080435355728099,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.01839427014879632
+    },
+    {
+      "feasible": true,
+      "loss": 0.14467995510586515,
+      "worst_type_loss": 0.2291551953594908,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.2291551953594908
+      ],
+      "feasible_allocations": 9,
+      "design": "D2",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.13226987169738047
+    },
+    {
+      "feasible": true,
+      "loss": 0.047489229618566685,
+      "worst_type_loss": 0.11397415108456004,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.11397415108456004,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 12,
+      "design": "D3",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008201
+    },
+    {
+      "feasible": true,
+      "loss": 0.01241008340848467,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.049198623706077305,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759263
+    },
+    {
+      "feasible": true,
+      "loss": 0.09693928940597123,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.1145775976797454
+      ],
+      "feasible_allocations": 12,
+      "design": "D6",
+      "scenario": "H3",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.08452920599748656
+    },
+    {
+      "feasible": true,
+      "loss": 0.023358303512190186,
+      "worst_type_loss": 0.04414624835711116,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.04414624835711116,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D0",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.07854111395857914,
+      "worst_type_loss": 0.17658499342844464,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.17658499342844464,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.05518281044638895
+    },
+    {
+      "feasible": true,
+      "loss": 0.1924167155071633,
+      "worst_type_loss": 0.2291551953594908,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.2291551953594908
+      ],
+      "feasible_allocations": 9,
+      "design": "D2",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.16905841199497312
+    },
+    {
+      "feasible": true,
+      "loss": 0.0417525736609865,
+      "worst_type_loss": 0.08829249671422232,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.08829249671422232,
+        0.0
+      ],
+      "feasible_allocations": 12,
+      "design": "D3",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.018394270148796316
+    },
+    {
+      "feasible": true,
+      "loss": 0.06014684380978282,
+      "worst_type_loss": 0.1324387450713335,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1324387450713335,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759264
+    },
+    {
+      "feasible": true,
+      "loss": 0.09693538410737546,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07357708059518527
+    },
+    {
+      "feasible": true,
+      "loss": 0.14467604980726936,
+      "worst_type_loss": 0.2207312417855558,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.2207312417855558,
+        0.1145775976797454
+      ],
+      "feasible_allocations": 12,
+      "design": "D6",
+      "scenario": "H4",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.12131774629507917
+    },
+    {
+      "feasible": true,
+      "loss": 0.08256837582864869,
+      "worst_type_loss": 0.19816410198875686,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.19816410198875686,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D0",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.03080435355728099,
+      "worst_type_loss": 0.04414624835711116,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.04414624835711116,
+        0.0
+      ],
+      "feasible_allocations": 16,
+      "design": "D1",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.01839427014879632
+    },
+    {
+      "feasible": true,
+      "loss": 0.08598716400366994,
+      "worst_type_loss": 0.17658499342844464,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.17658499342844464,
+        0.0
+      ],
+      "feasible_allocations": 9,
+      "design": "D2",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07357708059518528
+    },
+    {
+      "feasible": true,
+      "loss": 0.047489229618566685,
+      "worst_type_loss": 0.11397415108456004,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.11397415108456004,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 12,
+      "design": "D3",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008201
+    },
+    {
+      "feasible": true,
+      "loss": 0.01241008340848467,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D4",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.049198623706077305,
+      "worst_type_loss": 0.08829249671422232,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.08829249671422232,
+        0.0
+      ],
+      "feasible_allocations": 15,
+      "design": "D5",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03678854029759263
+    },
+    {
+      "feasible": true,
+      "loss": 0.06759289385487362,
+      "worst_type_loss": 0.1324387450713335,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1324387450713335,
+        0.0
+      ],
+      "feasible_allocations": 12,
+      "design": "D6",
+      "scenario": "H5",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.055182810446388945
+    },
+    {
+      "feasible": true,
+      "loss": 0.27037419028754345,
+      "worst_type_loss": 0.3244490283450521,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          7,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.3244490283450521,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D0",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.2104748772604921
+    },
+    {
+      "feasible": true,
+      "loss": 0.16513675165729738,
+      "worst_type_loss": 0.19816410198875686,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          4,
+          6
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.19816410198875686,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D1",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.10523743863024604
+    },
+    {
+      "feasible": true,
+      "loss": 0.05989931302705135,
+      "worst_type_loss": 0.07187917563246163,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.07187917563246163,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D2",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.2352950440774614,
+      "worst_type_loss": 0.2823540528929537,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          6,
+          4
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.2823540528929537,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D3",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.17539573105041006
+    },
+    {
+      "feasible": true,
+      "loss": 0.2002158978673794,
+      "worst_type_loss": 0.24025907744085528,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          5,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.24025907744085528,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D4",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.14031658484032805
+    },
+    {
+      "feasible": true,
+      "loss": 0.13005760544721537,
+      "worst_type_loss": 0.15606912653665844,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          3,
+          7
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.15606912653665844,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D5",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.09497845923713337,
+      "worst_type_loss": 0.11397415108456004,
+      "flagged": 10,
+      "flagged_share": 0.8333333333333334,
+      "allocation": [
+        [
+          2,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.11397415108456004,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 4,
+      "design": "D6",
+      "scenario": "H6",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008202
+    },
+    {
+      "feasible": true,
+      "loss": 0.14322199709968175,
+      "worst_type_loss": 0.14322199709968175,
+      "flagged": 3,
+      "flagged_share": 0.25,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.14322199709968175
+      ],
+      "feasible_allocations": 1,
+      "design": "D0",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.2864439941993635,
+      "worst_type_loss": 0.2864439941993635,
+      "flagged": 6,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.2864439941993635
+      ],
+      "feasible_allocations": 1,
+      "design": "D1",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.14322199709968175
+    },
+    {
+      "feasible": true,
+      "loss": 0.42966599129904526,
+      "worst_type_loss": 0.42966599129904526,
+      "flagged": 9,
+      "flagged_share": 0.75,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.42966599129904526
+      ],
+      "feasible_allocations": 1,
+      "design": "D2",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.2864439941993635
+    },
+    {
+      "feasible": true,
+      "loss": 0.19096266279957566,
+      "worst_type_loss": 0.19096266279957566,
+      "flagged": 4,
+      "flagged_share": 0.3333333333333333,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.19096266279957566
+      ],
+      "feasible_allocations": 1,
+      "design": "D3",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.04774066569989391
+    },
+    {
+      "feasible": true,
+      "loss": 0.2387033284994696,
+      "worst_type_loss": 0.2387033284994696,
+      "flagged": 5,
+      "flagged_share": 0.4166666666666667,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.2387033284994696
+      ],
+      "feasible_allocations": 1,
+      "design": "D4",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.09548133139978784
+    },
+    {
+      "feasible": true,
+      "loss": 0.33418465989925744,
+      "worst_type_loss": 0.33418465989925744,
+      "flagged": 7,
+      "flagged_share": 0.5833333333333334,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.33418465989925744
+      ],
+      "feasible_allocations": 1,
+      "design": "D5",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.1909626627995757
+    },
+    {
+      "feasible": true,
+      "loss": 0.3819253255991513,
+      "worst_type_loss": 0.3819253255991513,
+      "flagged": 8,
+      "flagged_share": 0.6666666666666666,
+      "allocation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "type_loss": [
+        null,
+        null,
+        0.3819253255991513
+      ],
+      "feasible_allocations": 1,
+      "design": "D6",
+      "scenario": "H7",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.23870332849946957
+    },
+    {
+      "feasible": true,
+      "loss": 0.34549651607110127,
+      "worst_type_loss": 0.34549651607110127,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          9,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.34549651607110127,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D0",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.21047487726049202
+    },
+    {
+      "feasible": true,
+      "loss": 0.24025907744085528,
+      "worst_type_loss": 0.24025907744085528,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          6,
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.24025907744085528,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D1",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.10523743863024604
+    },
+    {
+      "feasible": true,
+      "loss": 0.13502163881060925,
+      "worst_type_loss": 0.13502163881060925,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          3,
+          9
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.13502163881060925,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D2",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.3104173698610193,
+      "worst_type_loss": 0.3104173698610193,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          8,
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.3104173698610193,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D3",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.17539573105041006
+    },
+    {
+      "feasible": true,
+      "loss": 0.2753382236509373,
+      "worst_type_loss": 0.2753382236509373,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          7,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.2753382236509373,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D4",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.14031658484032805
+    },
+    {
+      "feasible": true,
+      "loss": 0.20517993123077327,
+      "worst_type_loss": 0.20517993123077327,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.20517993123077327,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D5",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.07015829242016403
+    },
+    {
+      "feasible": true,
+      "loss": 0.17010078502069126,
+      "worst_type_loss": 0.17010078502069126,
+      "flagged": 12,
+      "flagged_share": 1.0,
+      "allocation": [
+        [
+          4,
+          8
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.17010078502069126,
+        null,
+        null
+      ],
+      "feasible_allocations": 1,
+      "design": "D6",
+      "scenario": "H8",
+      "split": "holdout",
+      "occupied_people": 12,
+      "available_seats": 12,
+      "regret": 0.03507914621008201
+    },
+    {
+      "feasible": true,
+      "loss": 0.06751081940530462,
+      "worst_type_loss": 0.13502163881060925,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.13502163881060925,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 18,
+      "design": "D0",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.05261871931512302
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 37,
+      "design": "D1",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.04248350531337608,
+      "worst_type_loss": 0.1103656208927779,
+      "flagged": 5,
+      "flagged_share": 0.625,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.1103656208927779,
+        0.0
+      ],
+      "feasible_allocations": 18,
+      "design": "D2",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.027591405223194476
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 27,
+      "design": "D3",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 34,
+      "design": "D4",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 34,
+      "design": "D5",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.0
+    },
+    {
+      "feasible": true,
+      "loss": 0.014892100090181604,
+      "worst_type_loss": 0.029784200180363207,
+      "flagged": 4,
+      "flagged_share": 0.5,
+      "allocation": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "type_loss": [
+        0.029784200180363207,
+        0.0,
+        0.0
+      ],
+      "feasible_allocations": 27,
+      "design": "D6",
+      "scenario": "H9",
+      "split": "holdout",
+      "occupied_people": 8,
+      "available_seats": 12,
+      "regret": 0.0
+    }
+  ],
+  "selection": {
+    "T1": [
+      "D0"
+    ],
+    "T2": {
+      "winners": [
+        "D6"
+      ],
+      "scores": {
+        "D0": 0.19525186450398554,
+        "D1": 0.09001442587373949,
+        "D2": 0.03825040360237179,
+        "D3": 0.16017271829390353,
+        "D4": 0.12509357208382152,
+        "D5": 0.05493527966365749,
+        "D6": 0.01985613345357547
+      }
+    },
+    "T3": {
+      "winners": [
+        "D4"
+      ],
+      "scores": {
+        "D0": 0.17539573105041006,
+        "D1": 0.11387560154858416,
+        "D2": 0.25709759864826587,
+        "D3": 0.14031658484032805,
+        "D4": 0.10523743863024605,
+        "D5": 0.16161626724847808,
+        "D6": 0.209356932948372
+      }
+    },
+    "holdout": {
+      "winners": [
+        "D4"
+      ],
+      "scores": {
+        "D0": 0.2104748772604921,
+        "D1": 0.14322199709968175,
+        "D2": 0.2864439941993635,
+        "D3": 0.17539573105041006,
+        "D4": 0.14031658484032805,
+        "D5": 0.1909626627995757,
+        "D6": 0.23870332849946957
+      }
+    }
+  },
+  "uncertainty": [
+    {
+      "temperature_offset": 0.0,
+      "gradient_offset": 0.0,
+      "clothing_offset": 0.0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.21047487726049208,
+        "D1": 0.16822199709968175,
+        "D2": 0.33644399419936344,
+        "D3": 0.17539573105041004,
+        "D4": 0.14031658484032808,
+        "D5": 0.22429599613290904,
+        "D6": 0.28036999516613625
+      }
+    },
+    {
+      "temperature_offset": 0.0,
+      "gradient_offset": 0.0,
+      "clothing_offset": 0.0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2104748772604921,
+        "D1": 0.14322199709968175,
+        "D2": 0.2864439941993635,
+        "D3": 0.17539573105041006,
+        "D4": 0.14031658484032805,
+        "D5": 0.1909626627995757,
+        "D6": 0.23870332849946957
+      }
+    },
+    {
+      "temperature_offset": 0.0,
+      "gradient_offset": 0.0,
+      "clothing_offset": 0.0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.17536697735067372,
+        "D1": 0.11822199709968177,
+        "D2": 0.23644399419936352,
+        "D3": 0.1461391477922281,
+        "D4": 0.11691131823378247,
+        "D5": 0.1576293294662423,
+        "D6": 0.19703666183280288
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.41991446498310514,
+        "D1": 0.20995723249155254,
+        "D2": 0.15356470968705765,
+        "D3": 0.3499287208192543,
+        "D4": 0.27994297665540335,
+        "D5": 0.1399714883277017,
+        "D6": 0.12797059140588138
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D6"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.36991446498310515,
+        "D1": 0.18495723249155258,
+        "D2": 0.10356470968705767,
+        "D3": 0.3082620541525876,
+        "D4": 0.24660964332207008,
+        "D5": 0.12330482166103507,
+        "D6": 0.08630392473921472
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D6"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.31991446498310516,
+        "D1": 0.15995723249155255,
+        "D2": 0.05356470968705768,
+        "D3": 0.26659538748592093,
+        "D4": 0.21327630998873676,
+        "D5": 0.10663815499436838,
+        "D6": 0.053319077497184175
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2753669773506737,
+        "D1": 0.13768348867533686,
+        "D2": 0.2114215542197524,
+        "D3": 0.22947248112556137,
+        "D4": 0.18357798490044913,
+        "D5": 0.1409477028131682,
+        "D6": 0.17618462851646033
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2253669773506737,
+        "D1": 0.11268348867533684,
+        "D2": 0.16142155421975235,
+        "D3": 0.18780581445889474,
+        "D4": 0.1502446515671158,
+        "D5": 0.10761436947983491,
+        "D6": 0.13451796184979362
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.17536697735067372,
+        "D1": 0.08768348867533686,
+        "D2": 0.11142155421975236,
+        "D3": 0.1461391477922281,
+        "D4": 0.11691131823378247,
+        "D5": 0.07428103614650158,
+        "D6": 0.09285129518312696
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.1455136137818595,
+        "D1": 0.13130858249126678,
+        "D2": 0.2626171649825335,
+        "D3": 0.12126134481821627,
+        "D4": 0.09700907585457301,
+        "D5": 0.17507810998835574,
+        "D6": 0.21884763748544464
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.09551361378185952,
+        "D1": 0.10630858249126679,
+        "D2": 0.21261716498253358,
+        "D3": 0.07959467815154961,
+        "D4": 0.07087238832751122,
+        "D5": 0.14174477665502236,
+        "D6": 0.17718097081877798
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.04551361378185953,
+        "D1": 0.0813085824912668,
+        "D2": 0.1626171649825336,
+        "D3": 0.037928011484882944,
+        "D4": 0.05420572166084453,
+        "D5": 0.10841144332168906,
+        "D6": 0.13551430415211133
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.524504778216073,
+        "D1": 0.2622523891080365,
+        "D2": 0.21962694825676765,
+        "D3": 0.43708731518006083,
+        "D4": 0.34966985214404867,
+        "D5": 0.1748349260720244,
+        "D6": 0.18302245688063973
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.474504778216073,
+        "D1": 0.23725238910803648,
+        "D2": 0.1696269482567676,
+        "D3": 0.39542064851339415,
+        "D4": 0.31633651881071534,
+        "D5": 0.15816825940535767,
+        "D6": 0.14135579021397304
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D6"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.424504778216073,
+        "D1": 0.2122523891080365,
+        "D2": 0.11962694825676765,
+        "D3": 0.3537539818467275,
+        "D4": 0.283003185477382,
+        "D5": 0.141501592738691,
+        "D6": 0.09968912354730639
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.36641150847547593,
+        "D1": 0.183205754237738,
+        "D2": 0.2737834314824745,
+        "D3": 0.3053429237295633,
+        "D4": 0.24427433898365067,
+        "D5": 0.18252228765498302,
+        "D6": 0.22815285956872877
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.31641150847547594,
+        "D1": 0.158205754237738,
+        "D2": 0.22378343148247454,
+        "D3": 0.26367625706289666,
+        "D4": 0.21094100565031731,
+        "D5": 0.1491889543216497,
+        "D6": 0.1864861929020621
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.266411508475476,
+        "D1": 0.13320575423773798,
+        "D2": 0.17378343148247455,
+        "D3": 0.22200959039622997,
+        "D4": 0.17760767231698396,
+        "D5": 0.1158556209883164,
+        "D6": 0.14481952623539546
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.17165128738885582,
+        "D1": 0.16090974955541723,
+        "D2": 0.3218194991108345,
+        "D3": 0.14304273949071317,
+        "D4": 0.11443419159257057,
+        "D5": 0.21454633274055632,
+        "D6": 0.26818291592569543
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.17165128738885582,
+        "D1": 0.13590974955541724,
+        "D2": 0.2718194991108344,
+        "D3": 0.1430427394907132,
+        "D4": 0.11443419159257057,
+        "D5": 0.18121299940722296,
+        "D6": 0.22651624925902875
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.13058445494889726,
+        "D1": 0.11090974955541726,
+        "D2": 0.22181949911083443,
+        "D3": 0.10882037912408105,
+        "D4": 0.08705630329926484,
+        "D5": 0.14787966607388964,
+        "D6": 0.18484958259236206
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.629119345475537,
+        "D1": 0.3145596727377685,
+        "D2": 0.28586953930555214,
+        "D3": 0.5242661212296142,
+        "D4": 0.41941289698369133,
+        "D5": 0.20970644849184572,
+        "D6": 0.23822461608796006
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.579119345475537,
+        "D1": 0.2895596727377685,
+        "D2": 0.23586953930555216,
+        "D3": 0.4825994545629475,
+        "D4": 0.3860795636503581,
+        "D5": 0.19303978182517906,
+        "D6": 0.1965579494212934
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.5291193454755371,
+        "D1": 0.2645596727377685,
+        "D2": 0.18586953930555206,
+        "D3": 0.4409327878962808,
+        "D4": 0.3527462303170247,
+        "D5": 0.17637311515851228,
+        "D6": 0.15489128275462677
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.3959464413732129,
+        "D1": 0.19797322068660647,
+        "D2": 0.33644399419936344,
+        "D3": 0.32995536781101076,
+        "D4": 0.26396429424880863,
+        "D5": 0.22429599613290904,
+        "D6": 0.28036999516613625
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.395946441373213,
+        "D1": 0.1979732206866065,
+        "D2": 0.2864439941993635,
+        "D3": 0.32995536781101076,
+        "D4": 0.26396429424880863,
+        "D5": 0.1909626627995757,
+        "D6": 0.23870332849946957
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.3608385414633945,
+        "D1": 0.18041927073169728,
+        "D2": 0.23644399419936352,
+        "D3": 0.3006987845528287,
+        "D4": 0.24055902764226306,
+        "D5": 0.1576293294662423,
+        "D6": 0.19703666183280288
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.16873853025494367,
+        "D1": 0.19065358539600344,
+        "D2": 0.38130717079200693,
+        "D3": 0.14061544187911973,
+        "D4": 0.1271023902640023,
+        "D5": 0.25420478052800455,
+        "D6": 0.3177559756600058
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.16873853025494367,
+        "D1": 0.16565358539600344,
+        "D2": 0.3313071707920069,
+        "D3": 0.14061544187911973,
+        "D4": 0.11249235350329578,
+        "D5": 0.22087144719467122,
+        "D6": 0.27608930899333906
+      }
+    },
+    {
+      "temperature_offset": -0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.1687385302549437,
+        "D1": 0.14065358539600345,
+        "D2": 0.28130717079200684,
+        "D3": 0.14061544187911976,
+        "D4": 0.11249235350329581,
+        "D5": 0.18753811386133792,
+        "D6": 0.2344226423266724
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.31834397809511134,
+        "D1": 0.1591719890475557,
+        "D2": 0.21962694825676765,
+        "D3": 0.26528664841259275,
+        "D4": 0.21222931873007425,
+        "D5": 0.14641796550451175,
+        "D6": 0.18302245688063973
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.26834397809511135,
+        "D1": 0.13417198904755567,
+        "D2": 0.1696269482567676,
+        "D3": 0.22361998174592615,
+        "D4": 0.1788959853967409,
+        "D5": 0.11308463217117844,
+        "D6": 0.14135579021397304
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.21834397809511139,
+        "D1": 0.10917198904755569,
+        "D2": 0.11962694825676765,
+        "D3": 0.1819533150792595,
+        "D4": 0.14556265206340757,
+        "D5": 0.07975129883784512,
+        "D6": 0.09968912354730639
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.18402573568020048,
+        "D1": 0.13689171574123726,
+        "D2": 0.2737834314824745,
+        "D3": 0.15335477973350042,
+        "D4": 0.12268382378680032,
+        "D5": 0.18252228765498302,
+        "D6": 0.22815285956872877
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.13402573568020051,
+        "D1": 0.11189171574123728,
+        "D2": 0.22378343148247454,
+        "D3": 0.11168811306683374,
+        "D4": 0.08935049045346699,
+        "D5": 0.1491889543216497,
+        "D6": 0.1864861929020621
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0840257356802005,
+        "D1": 0.08689171574123727,
+        "D2": 0.17378343148247455,
+        "D3": 0.07002144640016708,
+        "D4": 0.05792781049415818,
+        "D5": 0.1158556209883164,
+        "D6": 0.14481952623539546
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0011961950341016214,
+        "D1": 0.16090974955541723,
+        "D2": 0.3218194991108345,
+        "D3": 0.053636583185139086,
+        "D4": 0.10727316637027814,
+        "D5": 0.21454633274055632,
+        "D6": 0.26818291592569543
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0011961950341016232,
+        "D1": 0.13590974955541724,
+        "D2": 0.2718194991108344,
+        "D3": 0.045303249851805755,
+        "D4": 0.09060649970361148,
+        "D5": 0.18121299940722296,
+        "D6": 0.22651624925902875
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.11090974955541726,
+        "D2": 0.22181949911083443,
+        "D3": 0.03696991651847241,
+        "D4": 0.0739398330369448,
+        "D5": 0.14787966607388964,
+        "D6": 0.18484958259236206
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.41991446498310514,
+        "D1": 0.20995723249155254,
+        "D2": 0.28586953930555214,
+        "D3": 0.3499287208192543,
+        "D4": 0.27994297665540335,
+        "D5": 0.19057969287036805,
+        "D6": 0.23822461608796006
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.36991446498310515,
+        "D1": 0.18495723249155258,
+        "D2": 0.23586953930555216,
+        "D3": 0.3082620541525876,
+        "D4": 0.24660964332207008,
+        "D5": 0.15724635953703475,
+        "D6": 0.1965579494212934
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.31991446498310516,
+        "D1": 0.15995723249155255,
+        "D2": 0.18586953930555206,
+        "D3": 0.26659538748592093,
+        "D4": 0.21327630998873676,
+        "D5": 0.12391302620370141,
+        "D6": 0.15489128275462677
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.19065358539600344,
+        "D2": 0.38130717079200693,
+        "D3": 0.06355119513200116,
+        "D4": 0.1271023902640023,
+        "D5": 0.25420478052800455,
+        "D6": 0.3177559756600058
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.16565358539600344,
+        "D2": 0.3313071707920069,
+        "D3": 0.055217861798667806,
+        "D4": 0.11043572359733567,
+        "D5": 0.22087144719467122,
+        "D6": 0.27608930899333906
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.14065358539600345,
+        "D2": 0.28130717079200684,
+        "D3": 0.046884528465334474,
+        "D4": 0.09376905693066898,
+        "D5": 0.18753811386133792,
+        "D6": 0.2344226423266724
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.4478038366716211,
+        "D1": 0.22390191833581058,
+        "D2": 0.35241570508424547,
+        "D3": 0.3731698638930176,
+        "D4": 0.2985358911144141,
+        "D5": 0.23494380338949697,
+        "D6": 0.2936797542368712
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.44780383667162105,
+        "D1": 0.22390191833581058,
+        "D2": 0.3024157050842454,
+        "D3": 0.37316986389301754,
+        "D4": 0.29853589111441403,
+        "D5": 0.20161047005616362,
+        "D6": 0.2520130875702045
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D5"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.424504778216073,
+        "D1": 0.2122523891080365,
+        "D2": 0.2524157050842454,
+        "D3": 0.3537539818467275,
+        "D4": 0.283003185477382,
+        "D5": 0.16827713672283026,
+        "D6": 0.21034642090353786
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2073854206163967,
+        "D1": 0.19975970673346896,
+        "D2": 0.39951941346693787,
+        "D3": 0.17282118384699724,
+        "D4": 0.13825694707759778,
+        "D5": 0.2663462756446253,
+        "D6": 0.33293284455578154
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2073854206163967,
+        "D1": 0.17475970673346897,
+        "D2": 0.34951941346693793,
+        "D3": 0.17282118384699724,
+        "D4": 0.13825694707759778,
+        "D5": 0.23301294231129194,
+        "D6": 0.29126617788911496
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.20738542061639667,
+        "D1": 0.14975970673346897,
+        "D2": 0.299519413466938,
+        "D3": 0.1728211838469972,
+        "D4": 0.13825694707759775,
+        "D5": 0.19967960897795858,
+        "D6": 0.2495995112224483
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.22059315835290286,
+        "D2": 0.44118631670580577,
+        "D3": 0.07353105278430097,
+        "D4": 0.14706210556860191,
+        "D5": 0.2941242111372039,
+        "D6": 0.3676552639215048
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.19559315835290284,
+        "D2": 0.39118631670580584,
+        "D3": 0.06519771945096767,
+        "D4": 0.1303954389019353,
+        "D5": 0.26079087780387045,
+        "D6": 0.3259885972548382
+      }
+    },
+    {
+      "temperature_offset": 0,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.17059315835290287,
+        "D2": 0.3411863167058057,
+        "D3": 0.05686438611763428,
+        "D4": 0.11372877223526859,
+        "D5": 0.2274575444705372,
+        "D6": 0.28432193058817146
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2202543182657578,
+        "D1": 0.14293476965277604,
+        "D2": 0.28586953930555214,
+        "D3": 0.18354526522146486,
+        "D4": 0.14683621217717188,
+        "D5": 0.19057969287036805,
+        "D6": 0.23822461608796006
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.17025431826575788,
+        "D1": 0.11793476965277605,
+        "D2": 0.23586953930555216,
+        "D3": 0.14187859855479817,
+        "D4": 0.11350287884383857,
+        "D5": 0.15724635953703475,
+        "D6": 0.1965579494212934
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.12025431826575785,
+        "D1": 0.09293476965277607,
+        "D2": 0.18586953930555206,
+        "D3": 0.10021193188813153,
+        "D4": 0.08016954551050523,
+        "D5": 0.12391302620370141,
+        "D6": 0.15489128275462677
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.027474246268165303,
+        "D1": 0.16822199709968175,
+        "D2": 0.33644399419936344,
+        "D3": 0.05607399903322724,
+        "D4": 0.11214799806645451,
+        "D5": 0.22429599613290904,
+        "D6": 0.28036999516613625
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D3"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.027474246268165303,
+        "D1": 0.14322199709968175,
+        "D2": 0.2864439941993635,
+        "D3": 0.04774066569989391,
+        "D4": 0.09548133139978784,
+        "D5": 0.1909626627995757,
+        "D6": 0.23870332849946957
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.11822199709968177,
+        "D2": 0.23644399419936352,
+        "D3": 0.03940733236656056,
+        "D4": 0.07881466473312114,
+        "D5": 0.1576293294662423,
+        "D6": 0.19703666183280288
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.17639522435081795,
+        "D2": 0.3527904487016358,
+        "D3": 0.058798408116939316,
+        "D4": 0.11759681623387863,
+        "D5": 0.2351936324677572,
+        "D6": 0.2939920405846965
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.16565358539600344,
+        "D2": 0.3313071707920069,
+        "D3": 0.055217861798667806,
+        "D4": 0.11043572359733567,
+        "D5": 0.22087144719467122,
+        "D6": 0.27608930899333906
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": -0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.14065358539600345,
+        "D2": 0.28130717079200684,
+        "D3": 0.046884528465334474,
+        "D4": 0.09376905693066898,
+        "D5": 0.18753811386133792,
+        "D6": 0.2344226423266724
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.24164303655065938,
+        "D1": 0.1762078525421227,
+        "D2": 0.35241570508424547,
+        "D3": 0.20136919712554952,
+        "D4": 0.16109535770043965,
+        "D5": 0.23494380338949697,
+        "D6": 0.2936797542368712
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.2416430365506594,
+        "D1": 0.1512078525421227,
+        "D2": 0.3024157050842454,
+        "D3": 0.20136919712554952,
+        "D4": 0.1610953577004396,
+        "D5": 0.20161047005616362,
+        "D6": 0.2520130875702045
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D1"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.21834397809511139,
+        "D1": 0.12620785254212272,
+        "D2": 0.2524157050842454,
+        "D3": 0.1819533150792595,
+        "D4": 0.14556265206340757,
+        "D5": 0.16827713672283026,
+        "D6": 0.21034642090353786
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.024999647821121185,
+        "D1": 0.19975970673346896,
+        "D2": 0.39951941346693787,
+        "D3": 0.0665865689111563,
+        "D4": 0.13317313782231263,
+        "D5": 0.2663462756446253,
+        "D6": 0.33293284455578154
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.02499964782112124,
+        "D1": 0.17475970673346897,
+        "D2": 0.34951941346693793,
+        "D3": 0.058253235577823,
+        "D4": 0.116506471155646,
+        "D5": 0.23301294231129194,
+        "D6": 0.29126617788911496
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.024999647821121185,
+        "D1": 0.14975970673346897,
+        "D2": 0.299519413466938,
+        "D3": 0.04991990224448967,
+        "D4": 0.0998398044889793,
+        "D5": 0.19967960897795858,
+        "D6": 0.2495995112224483
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.22059315835290286,
+        "D2": 0.44118631670580577,
+        "D3": 0.07353105278430097,
+        "D4": 0.14706210556860191,
+        "D5": 0.2941242111372039,
+        "D6": 0.3676552639215048
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.19559315835290284,
+        "D2": 0.39118631670580584,
+        "D3": 0.06519771945096767,
+        "D4": 0.1303954389019353,
+        "D5": 0.26079087780387045,
+        "D6": 0.3259885972548382
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.17059315835290287,
+        "D2": 0.3411863167058057,
+        "D3": 0.05686438611763428,
+        "D4": 0.11372877223526859,
+        "D5": 0.2274575444705372,
+        "D6": 0.28432193058817146
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.24210016833480547,
+        "D1": 0.20964619466616838,
+        "D2": 0.4192923893323367,
+        "D3": 0.20175014027900467,
+        "D4": 0.16140011222320366,
+        "D5": 0.27952825955489125,
+        "D6": 0.349410324443614
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.24210016833480552,
+        "D1": 0.18464619466616838,
+        "D2": 0.36929238933233677,
+        "D3": 0.20175014027900467,
+        "D4": 0.16140011222320366,
+        "D5": 0.24619492622155786,
+        "D6": 0.3077436577769473
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": -0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D4"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.24210016833480558,
+        "D1": 0.1596461946661684,
+        "D2": 0.31929238933233683,
+        "D3": 0.20175014027900462,
+        "D4": 0.1614001122232037,
+        "D5": 0.2128615928882245,
+        "D6": 0.2660769911102806
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.02183512122344966,
+        "D1": 0.23138707618373414,
+        "D2": 0.4627741523674682,
+        "D3": 0.07712902539457803,
+        "D4": 0.15425805078915608,
+        "D5": 0.3085161015783122,
+        "D6": 0.3856451269728902
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.02183512122344944,
+        "D1": 0.20638707618373417,
+        "D2": 0.4127741523674682,
+        "D3": 0.06879569206124467,
+        "D4": 0.13759138412248936,
+        "D5": 0.2751827682449789,
+        "D6": 0.3439784603062235
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.021835121223449494,
+        "D1": 0.18138707618373415,
+        "D2": 0.36277415236746824,
+        "D3": 0.06046235872791139,
+        "D4": 0.12092471745582276,
+        "D5": 0.24184943491164554,
+        "D6": 0.30231179363955696
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.4,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.25061641723606076,
+        "D2": 0.5012328344721215,
+        "D3": 0.0835388057453536,
+        "D4": 0.16707761149070716,
+        "D5": 0.3341552229814143,
+        "D6": 0.417694028726768
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.5,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.22561641723606077,
+        "D2": 0.4512328344721217,
+        "D3": 0.07520547241202027,
+        "D4": 0.15041094482404058,
+        "D5": 0.3008218896480811,
+        "D6": 0.37602736206010134
+      }
+    },
+    {
+      "temperature_offset": 0.5,
+      "gradient_offset": 0.5,
+      "clothing_offset": 0.1,
+      "pmv_limit": 0.6,
+      "development_winners": [
+        "D0"
+      ],
+      "holdout_regret_by_design": {
+        "D0": 0.0,
+        "D1": 0.2006164172360608,
+        "D2": 0.40123283447212155,
+        "D3": 0.06687213907868692,
+        "D4": 0.13374427815737386,
+        "D5": 0.26748855631474777,
+        "D6": 0.3343606953934346
+      }
+    }
+  ],
+  "interpretation": "Conditional illustrative scenarios; PMV screening is not measured personal satisfaction. Allocation is an ideal managed matching under constraints; no behaviour or environment feedback is predicted."
+}

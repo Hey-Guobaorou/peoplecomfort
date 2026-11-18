@@ -4,12 +4,12 @@
 
 The package separates three questions: what each design provides, which user–zone assignments are feasible, and how a fixed design performs across development and holdout scenarios. The evaluator supports direct normalized scores and a bundled CBE PMV calculation. It reports aggregate and profile-level burden, infeasible assignments, minimax loss and minimax regret. Inputs, source statements and outputs are exported for inspection.
 
-**Status:** v0.2.0 research software. The included projects contain constructed inputs and are not field-validated design recommendations. The original ARCH7476 A3 two-zone example remains supported as schema v1; new projects should use schema v2.
+**Status:** v0.2.0 research software. The A3 submission is frozen at tag `a3-submission`: its decision case is `examples/extended-a3/project.json`; the general schema v2 and browser workbench are extensions for future studies. The older `examples/minimal` is a pilot, not the revised A3 result. The included projects contain constructed inputs and are not field-validated design recommendations.
 
 ## Requirements and installation
 
 - Python 3.11 or newer.
-- Node.js 18 or newer for projects that use CBE PMV. Direct-score projects can run without Node when using `framework.analyze`, although the CLI export currently probes Node only when installed.
+- Node.js 18 or newer for projects that use CBE PMV. Direct-score projects work through both the Python API and CLI without Node; the CLI records no Node version when it is absent. PMV analysis fails with a clear missing-Node error.
 - No Python runtime dependencies or API key. The package is installed from a repository checkout; it is not on PyPI.
 
 ```console
@@ -74,14 +74,15 @@ The revised [A3 report source](coursework/A3_research_report.md) and PDF are bui
 ## Reproducibility and tests
 
 ```console
+python verification/smoke_check.py
 python -m unittest discover -s tests -v
-peoplecomfort analyze --project examples/minimal/project.json --out a3-output
+peoplecomfort analyze --project examples/extended-a3/project.json --out a3-output
 ```
+
+The smoke check exits nonzero on a mismatch and prints one `PASS` line for the pinned A3 input, 91 comparisons and D4 selection. The committed `results/a3-submission/` contains the CLI export; `coursework/` contains the source report, PDF, matrix, summary and build scripts. `verification/` contains the independent PMV comparison, test log and AI audit log. To reproduce the frozen submission, run `git checkout a3-submission` and `git rev-parse 'a3-submission^{commit}'` to display the exact commit SHA.
 
 The tests cover multi-zone allocation against an independent small-case oracle, access and capacity constraints, score validation, scenario separation, deterministic reruns and 12 numerical cases compared with the deployed CBE function. Shared CBE source ancestry makes that last check an integration test, not independent physical validation. Use environmental measurements, observed use and thermal votes before making field-effect claims.
 
 ## Licensing and citation
 
-PeopleComfort is distributed under GPL-2.0 because it bundles CBE `comfort_tool` JavaScript under that license. The source commit and preserved notices are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). CBE is the calculation reference, not an endorsement. [CITATION.cff](CITATION.cff) supplies project-level citation metadata without attributing a personal identity or claiming a DOI; repository maintainers can replace the collective project name with verified author credits before scholarly release.
-
-No GitHub repository, DOI or PyPI release is claimed by this source tree.
+PeopleComfort is distributed under GPL-2.0 because it bundles CBE `comfort_tool` JavaScript under that license. The source commit and preserved notices are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). CBE is the calculation reference, not an endorsement. [CITATION.cff](CITATION.cff) identifies the GitHub author handle and repository. A DOI and PyPI release have not been assigned.
