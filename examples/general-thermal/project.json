@@ -1,0 +1,172 @@
+{
+  "schema_version": 2,
+  "title": "Three thermal zones: simultaneous use capacity, no seating assumption",
+  "evidence_status": "illustrative",
+  "total_people": 12,
+  "existing_design": "D0",
+  "baseline_scenario": "S0",
+  "plan": {
+    "kind": "schematic",
+    "source": "Constructed three-zone thermal region diagram; no surveyed plan"
+  },
+  "zones": [
+    {
+      "id": "Z1",
+      "name": "Thermal region Z1",
+      "max_capacity": 8,
+      "source": "Constructed thermal scenario; not measured",
+      "ta": 23.5,
+      "tr": 23.5,
+      "v": 0.1,
+      "rh": 50
+    },
+    {
+      "id": "Z2",
+      "name": "Thermal region Z2",
+      "max_capacity": 8,
+      "source": "Constructed thermal scenario; not measured",
+      "ta": 25.5,
+      "tr": 25.5,
+      "v": 0.1,
+      "rh": 50
+    },
+    {
+      "id": "Z3",
+      "name": "Thermal region Z3",
+      "max_capacity": 8,
+      "source": "Constructed thermal scenario; not measured",
+      "ta": 27.5,
+      "tr": 27.5,
+      "v": 0.1,
+      "rh": 50
+    }
+  ],
+  "profiles": [
+    {
+      "id": "P1",
+      "name": "Activity/clothing group P1",
+      "allowed_zones": [
+        "Z1",
+        "Z2"
+      ],
+      "source": "Constructed activity and clothing, not an age group",
+      "met": 1,
+      "clo": 0.5
+    },
+    {
+      "id": "P2",
+      "name": "Activity/clothing group P2",
+      "allowed_zones": [
+        "Z1",
+        "Z2",
+        "Z3"
+      ],
+      "source": "Constructed activity and clothing, not an age group",
+      "met": 1.2,
+      "clo": 0.5
+    },
+    {
+      "id": "P3",
+      "name": "Activity/clothing group P3",
+      "allowed_zones": [
+        "Z2",
+        "Z3"
+      ],
+      "source": "Constructed activity and clothing, not an age group",
+      "met": 1.2,
+      "clo": 0.8
+    }
+  ],
+  "designs": [
+    {
+      "id": "D0",
+      "name": "Quiet capacity",
+      "capacity": {
+        "Z1": 7,
+        "Z2": 3,
+        "Z3": 2
+      }
+    },
+    {
+      "id": "D1",
+      "name": "Balanced capacity",
+      "capacity": {
+        "Z1": 4,
+        "Z2": 4,
+        "Z3": 4
+      }
+    },
+    {
+      "id": "D2",
+      "name": "Collaborative capacity",
+      "capacity": {
+        "Z1": 2,
+        "Z2": 3,
+        "Z3": 7
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S0",
+      "name": "Focus-heavy",
+      "split": "development",
+      "counts": {
+        "P1": 5,
+        "P2": 5,
+        "P3": 2
+      }
+    },
+    {
+      "id": "S1",
+      "name": "Balanced",
+      "split": "development",
+      "counts": {
+        "P1": 4,
+        "P2": 4,
+        "P3": 4
+      }
+    },
+    {
+      "id": "S2",
+      "name": "Collaboration-heavy",
+      "split": "development",
+      "counts": {
+        "P1": 2,
+        "P2": 5,
+        "P3": 5
+      }
+    },
+    {
+      "id": "H0",
+      "name": "Holdout A",
+      "split": "holdout",
+      "counts": {
+        "P1": 5,
+        "P2": 4,
+        "P3": 3
+      }
+    },
+    {
+      "id": "H1",
+      "name": "Holdout B",
+      "split": "holdout",
+      "counts": {
+        "P1": 3,
+        "P2": 4,
+        "P3": 5
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "id": "pmv_exceedance",
+      "name": "CBE PMV interval exceedance",
+      "kind": "cbe_pmv",
+      "weight": 1.0,
+      "threshold": 0.5,
+      "source": "Pinned CBE calculation with constructed thermal inputs"
+    }
+  ],
+  "score_worlds": []
+}

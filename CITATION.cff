@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use PeopleComfort, cite this software and the CBE thermal comfort model separately where applicable."
+title: "PeopleComfort: a spatial capacity evaluation framework"
+authors:
+  - name: "PeopleComfort project"
+version: 0.2.0
+date-released: 2026-11-18
+type: software
+license: GPL-2.0
+keywords:
+  - spatial design
+  - occupancy scenarios
+  - thermal comfort
+  - robust decision making
