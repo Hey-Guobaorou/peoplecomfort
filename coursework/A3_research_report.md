@@ -16,7 +16,7 @@
 
 Shared interiors can contain different thermal regions while users differ in activity and clothing. A spatial design fixes how many people may use each region, whereas the eventual composition can change. Existing work studies spatial thermal preference [1], cubicle assignment under personal preferences [2], personal-comfort-model space matching [3], and seat recommendations coupled with HVAC control [4]. The narrower question here is whether a *physical capacity distribution*, selected before the user mix is known, remains useful across several mixes. The work compares a frozen design, not just one day's assignment.
 
-**Research question.** Which two-zone capacity split minimizes the maximum opportunity loss across three development compositions, and how does that frozen split perform against the existing 9/3 split on holdout compositions, an alternate comfort metric and joint input perturbations?
+**Research question.** Which two-zone capacity split minimizes the maximum regret across three development compositions, and how does that frozen split perform against the existing 9/3 split on holdout compositions, an alternate comfort metric and joint input perturbations?
 
 The method separates zone definition, thermal calculation, feasible allocation and decision comparison. The starting inputs are a transparent hypothetical stress case. There is no surveyed floor plan, measured thermal field or observed occupant sample. The PMV and PPD numbers are calculated with a formula from the stated six-factor inputs; they are not arbitrary pre-filled suitability ratings. A site-specific recommendation would require measured or credibly simulated zone conditions, capacity and use records.
 
@@ -92,6 +92,8 @@ python coursework/build_pdf.py
 
 ## 4. Generative Loop and method rationale
 
+**Regret** measures how much additional loss a design incurs for a given user mix. Subtract the lowest loss among the seven candidates for that same mix from the chosen design's loss. In S0, D0 has loss 0.1953 and D6 has the lowest loss, 0.0199. The regret for D0 is therefore 0.1953 - 0.0199 = 0.1754. **Minimax regret** selects the design whose largest regret across the development mixes is smallest.
+
 | Loop step | Declared implementation |
 |---|---|
 | 1. Input condition | One two-zone abstraction; twelve available places; CBE PMV inputs and access constraints |
@@ -112,6 +114,24 @@ The expanded candidate set changes the recommendation. S0-only selection is D6 (
 
 ![Figure 2. PMV-exceedance loss for seven designs and thirteen compositions.](figure_extended_matrix.png)
 
+**Regret by user mix and design.** Each row uses the same mix as Figure 2. Zero identifies a lowest-loss design. To check the selection, take the largest value in S0-S2 for each design column, then compare those seven maxima. H0-H9 evaluate the frozen choices. Values are calculated before rounding.
+
+| Mix | D0 | D3 | D4 | D1 | D5 | D6 | D2 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| S0 | 0.1754 | 0.1403 | 0.1052 | 0.0702 | 0.0351 | 0.0000 | 0.0184 |
+| S1 | 0.0000 | 0.0184 | 0.0368 | 0.0552 | 0.0736 | 0.0920 | 0.1104 |
+| S2 | 0.0000 | 0.0184 | 0.0661 | 0.1139 | 0.1616 | 0.2094 | 0.2571 |
+| H0 | 0.1052 | 0.0702 | 0.0351 | 0.0000 | 0.0184 | 0.0368 | 0.0552 |
+| H1 | 0.0000 | 0.0184 | 0.0368 | 0.0552 | 0.0736 | 0.0920 | 0.1104 |
+| H2 | 0.0000 | 0.0184 | 0.0368 | 0.0552 | 0.1029 | 0.1507 | 0.1984 |
+| H3 | 0.0702 | 0.0351 | 0.0000 | 0.0184 | 0.0368 | 0.0845 | 0.1323 |
+| H4 | 0.0000 | 0.0184 | 0.0368 | 0.0552 | 0.0736 | 0.1213 | 0.1691 |
+| H5 | 0.0702 | 0.0351 | 0.0000 | 0.0184 | 0.0368 | 0.0552 | 0.0736 |
+| H6 | 0.2105 | 0.1754 | 0.1403 | 0.1052 | 0.0702 | 0.0351 | 0.0000 |
+| H7 | 0.0000 | 0.0477 | 0.0955 | 0.1432 | 0.1910 | 0.2387 | 0.2864 |
+| H8 | 0.2105 | 0.1754 | 0.1403 | 0.1052 | 0.0702 | 0.0351 | 0.0000 |
+| H9 | 0.0526 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0276 |
+
 | Design | S0 loss | Development max regret | Ten-holdout max regret | Stress-grid wins / 81 |
 |---|---:|---:|---:|---:|
 | D0 9/3 | 0.1953 | 0.1754 | 0.2105 | 26 |
@@ -122,7 +142,7 @@ The expanded candidate set changes the recommendation. S0-only selection is D6 (
 | D6 4/8 | **0.0199** | 0.2094 | 0.2387 | 3 |
 | D2 3/9 | 0.0383 | 0.2571 | 0.2864 | 0 |
 
-The headline comparison is D4 versus the existing D0: `(0.2105-0.1403)/0.2105 = 33.3%` lower maximum holdout regret. This is a reduction in *model opportunity loss*, not observed satisfaction. In the original restricted three-candidate pilot, D1 versus D0 reduced six-holdout maximum regret from 0.1052 to 0.0552 (about 47.5%). The former 72.19% headline compared D1 with the S0-only D2 and is not the relevant existing-design comparison. Candidate expansion changes all regret benchmarks, so the old and revised percentages must not be treated as the same experiment.
+The headline comparison is D4 versus the existing D0: `(0.2105-0.1403)/0.2105 = 33.3%` lower maximum holdout regret. This is a reduction in *model regret*, not observed satisfaction. In the original restricted three-candidate pilot, D1 versus D0 reduced six-holdout maximum regret from 0.1052 to 0.0552 (about 47.5%). The former 72.19% headline compared D1 with the S0-only D2 and is not the relevant existing-design comparison. Candidate expansion changes all regret benchmarks, so the old and revised percentages must not be treated as the same experiment.
 
 Across all ten holdouts, D4 has lower regret than D0 in H0, H3, H5, H6, H8 and H9, and higher regret in H1, H2, H4 and H7. Mean holdout regret is 0.0522 for D4 and 0.0719 for D0, a 27.5% reduction under equal scenario weighting. The maximum comparison is controlled by H6 and H8, both strongly P1-heavy; it therefore tests one important tail direction more than broad transfer. The mean and win count show the benefit is less uniform than the maximum alone suggests.
 
