@@ -21,9 +21,9 @@ Node must be on `PATH` for PMV mode, or specify `PEOPLECOMFORT_NODE`. From a che
 
 ## Browser demonstration
 
-Open `docs/demo.html` to try a standalone interactive example. It lets visitors change the development user mix, criterion weights and a fourth custom zone-capacity design. The page uses constructed direct scores and runs without a Python server. For GitHub Pages, configure **Settings → Pages → Deploy from a branch → main /docs** after pushing the repository. The resulting page will be `https://hey-guobaorou.github.io/peoplecomfort/demo.html` once Pages deployment succeeds.
+Open `docs/demo.html` to try the standalone project workbench. Its structured editor displays every value in the example JSON: zone capacities and sources, profiles and access, criterion weights and score matrices, all design capacities, all scenario counts, plan provenance, allocation and decision rules, and optional score worlds. The full JSON panel permits additional schema fields and structural edits; import and download make projects rerunnable. The page uses constructed direct scores and runs without a Python server. CBE PMV calculations still require the local package.
 
-Rebuild the standalone page after editing `examples/general/project.json` or `docs/demo.js` with `python docs/build_demo.py`, then run `python docs/build_docs.py` to update the embedded local-server documentation copy.
+Rebuild the standalone page after editing `examples/general/project.json`, `docs/workbench.template.txt` or `docs/workbench.js` with `python docs/build_demo.py`, then run `python docs/build_docs.py` to update the embedded local-server documentation copy. The public workbench is also hosted at [hey-guobaorou.github.io/ARCH7476/peoplecomfort.html](https://hey-guobaorou.github.io/ARCH7476/peoplecomfort.html).
 
 ## Quick start
 
@@ -58,7 +58,7 @@ Open `http://127.0.0.1:8765/framework` for schema v2. The home page shows the or
 | Metrics | Lower-is-better 0–1 losses with declared sources and weights summing to one |
 | Plan metadata | Optional source, kind and scale record; geometry is not computed |
 
-For a given design and user mix, the program finds a minimum-loss complete assignment subject to capacity and allowed-zone constraints. That assignment assumes managed placement; observed seat or area choice may differ. Scores require evidence and a documented transformation from real measurements. The framework does not infer a valid score from a raw floor plan, temperature, dB or lux value.
+For a given design and user mix, `allocation_rule=optimal` finds a minimum-loss complete assignment subject to capacity and allowed-zone constraints. `priority_first_fit` is a deterministic profile-order operating alternative. `capacity_policy=equal_total` controls total places across designs; `variable_total` permits different totals but does not price extra capacity. `decision_rule` chooses baseline, minimax regret or minimax loss while retaining all comparisons. Assignment rules are declared assumptions; observed seat or area choice may differ. Scores require evidence and a documented transformation from real measurements. The framework does not infer a valid score from a raw floor plan, temperature, dB or lux value.
 
 ## Documentation
 

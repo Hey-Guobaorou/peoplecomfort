@@ -39,6 +39,12 @@ def validate(project):
     zid=_ids(zones,'Zone');pid=_ids(profiles,'Profile');did=_ids(designs,'Design');sid=_ids(scenarios,'Scenario');mid=_ids(metrics,'Metric')
     n=p['total_people']
     if isinstance(n,bool) or not isinstance(n,int) or not 1<=n<=MAX_PEOPLE:raise ValueError('total_people must be 1-80')
+    if p.get('capacity_policy','equal_total') not in ('equal_total','variable_total'):
+        raise ValueError('capacity_policy must be equal_total or variable_total')
+    if p.get('allocation_rule','optimal') not in ('optimal','priority_first_fit'):
+        raise ValueError('allocation_rule must be optimal or priority_first_fit')
+    if p.get('decision_rule','minimax_regret') not in ('baseline','minimax_regret','minimax_loss'):
+        raise ValueError('decision_rule must be baseline, minimax_regret or minimax_loss')
     for z in zones:
         cap=z['max_capacity']
         if isinstance(cap,bool) or not isinstance(cap,int) or cap<0:raise ValueError('Invalid zone maximum capacity')
@@ -49,7 +55,8 @@ def validate(project):
     for d in designs:
         if set(d['capacity'])!=set(zid):raise ValueError('Design must specify every zone capacity')
         if any(isinstance(d['capacity'][z],bool) or not isinstance(d['capacity'][z],int) or not 0<=d['capacity'][z]<=zones[zid.index(z)]['max_capacity'] for z in zid):raise ValueError('Invalid design capacity')
-        if sum(d['capacity'].values())!=n:raise ValueError('Each design must offer exactly total_people places')
+        if p.get('capacity_policy','equal_total')=='equal_total' and sum(d['capacity'].values())!=n:
+            raise ValueError('Each design must offer exactly total_people places under equal_total')
     for s in scenarios:
         if s['split'] not in ('development','holdout'):raise ValueError('Scenario split must be development or holdout')
         if set(s['counts'])!=set(pid) or any(isinstance(v,bool) or not isinstance(v,int) or v<0 for v in s['counts'].values()) or sum(s['counts'].values())!=n:raise ValueError('Scenario counts must be nonnegative integers totaling total_people')
@@ -152,6 +159,27 @@ def _assignment(counts,capacities,loss,allowed,ceiling=None):
     return {'feasible':True,'loss':cost/sum(counts),'allocation':allocation,'type_loss':[burdens[i]/c if c else None for i,c in enumerate(counts)],'worst_type_loss':max((burdens[i]/c for i,c in enumerate(counts) if c),default=0)}
 
 
+def _priority_first_fit(counts,capacities,loss,allowed,ceiling=None):
+    """Deterministic profile-order placement; an operating scenario, not a behaviour forecast."""
+    remaining=capacities.copy()
+    allocation=[[0]*len(capacities) for _ in counts]
+    for i,count in enumerate(counts):
+        choices=sorted((z for z in range(len(capacities)) if allowed[i][z]
+                        and (ceiling is None or loss[i][z]<=ceiling+1e-12)),
+                       key=lambda z:(loss[i][z],z))
+        for z in choices:
+            take=min(count,remaining[z]);allocation[i][z]=take;remaining[z]-=take;count-=take
+            if count==0:break
+        if count:
+            return {'feasible':False,'loss':None,
+                    'reason':'Priority first-fit could not assign every person in profile order'}
+    total=sum(counts)
+    burdens=[sum(allocation[i][z]*loss[i][z] for z in range(len(capacities))) for i in range(len(counts))]
+    return {'feasible':True,'loss':sum(burdens)/total,'allocation':allocation,
+            'type_loss':[burdens[i]/c if c else None for i,c in enumerate(counts)],
+            'worst_type_loss':max((burdens[i]/c for i,c in enumerate(counts) if c),default=0)}
+
+
 def _select(rows,scenarios,designs,metric):
     scores={}
     for d in designs:
@@ -172,7 +200,8 @@ def _evaluate(p,metric_scores):
             effective=p.get('design_scores',{}).get(d['id'],metric_scores)
             combined=[[sum(weights[m]*effective[m][t][z] for m in weights) for z in zs] for t in ts]
             capacities=[d['capacity'][z] for z in zs]
-            row=_assignment(counts,capacities,combined,allowed,p.get('max_individual_loss'))
+            allocator=_assignment if p.get('allocation_rule','optimal')=='optimal' else _priority_first_fit
+            row=allocator(counts,capacities,combined,allowed,p.get('max_individual_loss'))
             row.update(design=d['id'],scenario=s['id'],split=s['split'])
             if row['feasible']:
                 row['metric_losses']={m:sum(row['allocation'][i][j]*effective[m][t][z] for i,t in enumerate(ts) for j,z in enumerate(zs))/p['total_people'] for m in weights}
@@ -182,6 +211,8 @@ def _evaluate(p,metric_scores):
         rows.extend(group)
     dev=[s['id'] for s in p['scenarios'] if s['split']=='development'];hold=[s['id'] for s in p['scenarios'] if s['split']=='holdout']
     selection={'existing':[p['existing_design']], 'baseline':_select(rows,[p['baseline_scenario']],ds,'loss'), 'minimax_regret':_select(rows,dev,ds,'regret'), 'minimax_loss':_select(rows,dev,ds,'loss'), 'holdout':_select(rows,hold,ds,'regret')}
+    selection['selected_rule']=p.get('decision_rule','minimax_regret')
+    selection['selected']=selection[selection['selected_rule']]
     return rows,selection
 
 

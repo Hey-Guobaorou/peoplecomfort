@@ -3,6 +3,9 @@
   "title": "Three-zone shared workspace capacity study",
   "evidence_status": "illustrative",
   "total_people": 12,
+  "capacity_policy": "equal_total",
+  "allocation_rule": "optimal",
+  "decision_rule": "minimax_regret",
   "existing_design": "D0",
   "baseline_scenario": "S0",
   "plan": {

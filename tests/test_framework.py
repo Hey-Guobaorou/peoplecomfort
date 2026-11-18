@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
-from peoplecomfort.framework import analyze,validate,_assignment
+from peoplecomfort.framework import analyze,validate,_assignment,_priority_first_fit
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -56,3 +56,26 @@ class GeneralFrameworkTests(unittest.TestCase):
         p['scenarios'][-1]['counts']={'P1':4,'P2':4,'P3':4}
         q=analyze(p)
         self.assertEqual(r['selection']['minimax_regret'],q['selection']['minimax_regret'])
+
+    def test_variable_capacity_and_rule_selection(self):
+        p=self.load();p['capacity_policy']='variable_total';p['decision_rule']='minimax_loss'
+        p['designs'][0]['capacity']['Z1']=6
+        result=analyze(p)
+        self.assertFalse(result['rows'][0]['feasible'])
+        self.assertEqual(result['selection']['selected_rule'],'minimax_loss')
+        self.assertEqual(result['selection']['selected'],result['selection']['minimax_loss'])
+
+    def test_priority_first_fit_can_differ_from_optimal(self):
+        counts=[1,1];capacities=[1,1];loss=[[0,.2],[0,.9]]
+        allowed=[[True,True],[True,False]]
+        optimal=_assignment(counts,capacities,loss,allowed)
+        greedy=_priority_first_fit(counts,capacities,loss,allowed)
+        self.assertTrue(optimal['feasible'])
+        self.assertAlmostEqual(optimal['loss'],.1)
+        self.assertFalse(greedy['feasible'])
+
+    def test_priority_rule_end_to_end(self):
+        p=self.load();p['allocation_rule']='priority_first_fit'
+        r=analyze(p)
+        self.assertEqual(len(r['rows']),15)
+        self.assertEqual(r['selection']['selected_rule'],'minimax_regret')
