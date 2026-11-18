@@ -8,9 +8,9 @@
 | Item | Finding |
 |---|---|
 | Decision | Should a fixed 12-place shared room retain the existing 9/3 cooler/warmer capacity split (D0), or change the split before the future user mix is known? |
-| Core result | Across all seven feasible 12-place splits, minimax regret selects 7/5 (D4). Its maximum regret over the ten holdouts is 0.1403 versus D0's 0.2105: a 33.3% reduction in the model objective. The extreme mixes were added during revision. Under these assumptions D4 improves on D0 in six of ten mixes and performs worse in four. The earlier three-candidate result that selected 6/6 (D1) does not survive candidate expansion. |
+| Core result | 7/5 narrowly leads 6/6. Against 9/3, its maximum magnitude-based regret falls 33.3% across ten constructed mixes, including extremes added during revision. |
 | Greatest uncertainty | The thermal inputs and user mixes are hypothetical; 7/5 wins only 23 of 81 joint stress conditions, and ideal managed assignment has not been observed. |
-| Design action | Retain D0 as the constructed case comparison baseline pending site evidence. An explicitly exploratory action gate requires both at least 20% holdout improvement and non-inferiority to D0 in at least 75% of stress conditions; the second check reaches only 54/81 (66.7%). |
+| Design action | We recommend no change to the 9/3 reference split in this study. Only 54 of 81 stress conditions pass the comparison with 9/3. |
 
 ## Research background and question
 
@@ -50,7 +50,9 @@ The original three-option pilot suggested 6/6 would be robust. Expanding the can
 
 ## 2. Workflow Artifact and reproducibility
 
-The public repository contains the engine, pinned CBE JavaScript and GPL-2.0 notice, both project JSON files, analysis script, independent PMV-check script, outputs and tests. The frozen submission is the Git tag `a3-submission`; after cloning, `git rev-parse 'a3-submission^{commit}'` prints its exact commit SHA. Check out that tag before rerunning. Python 3.11+ and Node.js 18+ are required for the main workflow; this run used Python 3.12.12 and Node v24.11.1. The independent library is a verification dependency only.
+The workflow follows the A3 brief [6]. The pinned thermal implementation is documented by CBE [5]. Repository: https://github.com/Hey-Guobaorou/peoplecomfort
+
+The repository contains the engine, pinned CBE JavaScript and GPL-2.0 notice, both project JSON files, analysis script, independent PMV-check script, outputs and tests. The frozen submission is the Git tag `a3-submission`; after cloning, `git rev-parse 'a3-submission^{commit}'` prints its exact commit SHA. The frozen calculation commit is e097a70664d19c0fbf78a2655350e94f48dc8126. Use that revision to reproduce the original calculation and the current report source to rebuild the revised figures and PDF. Python 3.11+ and Node.js 18+ are required for the main workflow; this run used Python 3.12.12 and Node v24.11.1. The independent library is a verification dependency only.
 
 ```console
 python -m pip install -e .
@@ -63,7 +65,7 @@ python verification/independent_pmv_check.py
 python coursework/build_pdf.py
 ```
 
-`examples/extended-a3/project.json` drives the seven-design analysis and 81-condition stress grid. `examples/a3-thermal/project.json` expresses the same nominal decision in schema v2 for the public browser editor. `coursework/extended_matrix.csv`, `extended_results.json` and the figures can be regenerated. The independent verification compares the pinned CBE engine with pythermalcomfort 4.8.1. The PDF is generated from this Markdown source. A screenshot is supplementary to these runnable artifacts.
+`examples/extended-a3/project.json` drives the seven-design analysis and 81-condition stress grid. `examples/a3-thermal/project.json` expresses the same nominal decision in schema v2 for the public browser editor. `coursework/extended_matrix.csv`, `extended_results.json` and the figures can be regenerated. The independent verification compares the pinned CBE engine with pythermalcomfort 4.8.1. The PDF is generated from this Markdown source. The interactive browser output is available at https://hey-guobaorou.github.io/ARCH7476/peoplecomfort.html
 
 **Isolated installation check.** A wheel was built, installed into a newly created Python virtual environment, and its `peoplecomfort analyze` command was run from outside the source checkout against `examples/a3-thermal/project.json`. It produced 91 rows and selected D4; the installed package contained the CBE source and browser assets. The temporary virtual environment is not part of the submission.
 
@@ -98,7 +100,7 @@ python coursework/build_pdf.py
 | 4. Evaluation metric | Mean exceedance `max(0, abs(PMV) - 0.5)` per occupied person; report mean PPD in parallel |
 | 5. Output | Full 91-cell matrix, allocations, PMV/PPD ledger, regrets and 81-condition stress record |
 | 6. Comparison rule | S0-only minimum versus maximum development regret; compare selected design with D0 on frozen holdouts and stress grid |
-| 7. Design action | Apply the explicit exploratory gate below; if it fails, retain D0 as the constructed case comparison baseline pending field evidence |
+| 7. Design action | Apply the explicit exploratory gate below; if it fails, keep the 9/3 reference split pending field evidence |
 
 For type *i* in zone *z*, `e(i,z)=max(0,abs(PMV(i,z))-0.5)`. The design/scenario loss is `sum assigned_count(i,z)*e(i,z) / occupied_people`. Thus H9 is divided by eight, not twelve. Regret in scenario *s* is the design's loss minus the lowest feasible candidate loss in *s*. The algorithm enumerates all integer allocations to two zones, with capacity, full assignment and allowed-zone constraints. Equal first-stage capacity controls resource count; empty seats are permitted at partial occupancy. The model assumes a manager can implement the allocation. It does not predict voluntary movement.
 
@@ -106,7 +108,7 @@ For type *i* in zone *z*, `e(i,z)=max(0,abs(PMV(i,z))-0.5)`. The design/scenario
 
 ## 5. Prototype Output and design interpretation
 
-The expanded candidate set changes the recommendation. S0-only selection is D6 (4/8); minimax development regret is D4 (7/5). The old 6/6 result was contingent on restricting the candidates to D0-D2. The full matrix includes three development, six interior holdout, three outside-envelope holdout and one eight-person holdout compositions.
+The expanded candidate set changes the recommendation. S0-only selection is D6 (4/8); minimizing the worst development loss also selects D4 (worst loss 0.1251). Minimizing maximum development regret selects D4 (7/5, regret 0.1052). The old 6/6 result was contingent on restricting the candidates to D0-D2. The full matrix includes three development, six interior holdout, three outside-envelope holdout and one eight-person holdout compositions.
 
 ![Figure 2. PMV-exceedance loss for seven designs and thirteen compositions.](figure_extended_matrix.png)
 
@@ -122,9 +124,9 @@ The expanded candidate set changes the recommendation. S0-only selection is D6 (
 
 The headline comparison is D4 versus the existing D0: `(0.2105-0.1403)/0.2105 = 33.3%` lower maximum holdout regret. This is a reduction in *model opportunity loss*, not observed satisfaction. In the original restricted three-candidate pilot, D1 versus D0 reduced six-holdout maximum regret from 0.1052 to 0.0552 (about 47.5%). The former 72.19% headline compared D1 with the S0-only D2 and is not the relevant existing-design comparison. Candidate expansion changes all regret benchmarks, so the old and revised percentages must not be treated as the same experiment.
 
-Across all ten holdouts, D4 has lower regret than D0 in six and higher regret in four. Mean holdout regret is 0.0522 for D4 and 0.0719 for D0, a 27.5% reduction under equal scenario weighting. The maximum comparison is controlled by H6 and H8, both strongly P1-heavy; it therefore tests one important tail direction more than broad transfer. The mean and win count show the benefit is less uniform than the maximum alone suggests.
+Across all ten holdouts, D4 has lower regret than D0 in H0, H3, H5, H6, H8 and H9, and higher regret in H1, H2, H4 and H7. Mean holdout regret is 0.0522 for D4 and 0.0719 for D0, a 27.5% reduction under equal scenario weighting. The maximum comparison is controlled by H6 and H8, both strongly P1-heavy; it therefore tests one important tail direction more than broad transfer. The mean and win count show the benefit is less uniform than the maximum alone suggests.
 
-The nominal development optimum is not well separated: D4's maximum regret is 0.1052 and D1's is 0.1139. With an exploratory 0.01 absolute near-optimality band, both D4 and D1 qualify. The worst development scenario is S0 for D0, D3 and D4; it is S2 for D1, D5, D6 and D2. Thus the minimax comparison is shaped by both P1-heavy and P3-heavy endpoints, even though D4's own maximum comes from S0.
+The nominal development optimum is not well separated: D4's maximum regret is 0.1052 and D1's is 0.1139. With an exploratory 0.01 absolute near-optimality band, both D4 and D1 qualify. Their holdout maxima differ by only 0.0029. Differences and percentages use full precision throughout. The development gap rounds to 0.0086, while subtracting the displayed scores gives 0.0087. The worst development scenario is S0 for D0, D3 and D4; it is S2 for D1, D5, D6 and D2. Thus the minimax comparison is shaped by both P1-heavy and P3-heavy endpoints, even though D4's own maximum comes from S0.
 
 The extreme holdouts reveal asymmetry. H6=10/1/1 gives D0 loss 0.2704 and D1 loss 0.1651; H7=0/0/12 gives D0 0.1432 and D1 0.2864; H8=12/0/0 gives D0 0.3455 and D1 0.2403. H9=4/2/2 uses eight people and twelve available places, giving D0 0.0675 and D1 0.0149. This is a structural test of spare capacity, not evidence of actual occupancy probabilities.
 
@@ -140,6 +142,8 @@ The extreme holdouts reveal asymmetry. H6=10/1/1 gives D0 loss 0.2704 and D1 los
 | H7 | D4 | 0 (0/0), n/a | 0 (0/0), n/a | 12 (7/5), 0.2387 | 5 / 12 |
 
 Moving two places from Z1 to Z2 reduces P1 burden in S0 and H6. In H7 every occupant has profile P3, so two additional people occupy the warmer zone and mean P3 burden increases.
+
+**Headcount check.** Keeping the same allocations, count each person with absolute PMV above 0.5 once. Across ten constructed holdouts D4 flags fewer people than D0 in 0 mixes, the same number in 6, and more in 4. For P1, a move from Z1 (-0.951) to Z2 (+0.530) reduces exceedance from 0.451 to 0.030 but still counts as one flagged person. S0 and H6 therefore show smaller burdens with unchanged counts. H7 rises from three to five flagged people. The 33.3% measures a reduction in maximum magnitude-based regret. Headcounts answer a different question and depend on where the screening boundary falls.
 
 **Alternate continuous check.** Re-optimizing allocation on *mean CBE PPD* selects D4 on both development and extended holdout maximum-regret criteria. Development PPD-regret is 3.3051 percentage points for D4 versus 5.5084 for D0; holdout PPD-regret is 4.4067 versus 6.6101. This reduces concern about the ±0.5 PMV screening edge, but PPD is a transformation of the same PMV model and the same extreme cases drive much of the comparison. It is a metric sensitivity check, not independent evidence of occupant comfort.
 
@@ -159,21 +163,23 @@ The six nominal CBE outputs were independently recomputed with pythermalcomfort 
 | The earlier six holdouts lay inside the development envelope. | Added 10/1/1, 0/0/12 and 12/0/0 outside-envelope compositions, plus 4/2/2 at eight-person occupancy. | Maximum holdout regret increases; extreme mixes sometimes favour opposite capacity directions. Transfer remains a finite constructed test. |
 | Full occupancy forced all twelve places into use. | Enabled explicitly declared partial occupancy and checked an eight-person allocation ledger. | Empty capacity changes loss; the denominator is occupied people. The original schema still rejects partial occupancy without opt-in. |
 | PMV exceedance may be sensitive to P1's Z2 PMV near +0.5. | Recomputed assignments and regret using continuous PPD. | D4 remains nominal winner under PPD, but PPD shares the PMV model and cannot validate lived experience. |
-| A nominal D4 win might invite an unconditional redesign claim. | Recomputed selection across 81 joint temperature, clothing and threshold conditions. | D4 wins 23/81; D0 wins 26/81. D4 is within 0.01 regret of D0 in only 54/81 (66.7%), below the exploratory 75% action gate. Retain D0 as the constructed case comparison baseline pending site evidence. |
+| A nominal D4 win might invite an unconditional redesign claim. | Recomputed selection across 81 joint temperature, clothing and threshold conditions. | D4 wins 23/81; D0 wins 26/81. D4 is within 0.01 regret of D0 in only 54/81 (66.7%), below the exploratory 75% action gate. keep the 9/3 reference split pending site evidence. |
 | Shared CBE code produced near-exact agreement with its own deployment. | Added pythermalcomfort as a separate implementation and recorded six-case signed differences. | Numerical confidence is stronger but empirical validity is still untested. |
 | The starting temperatures had no site provenance. | Audited source fields and reviewed library thermal-zoning literature. | Values are now explicitly labelled a hypothetical contrast, not a representative measured room; no field-design claim follows. |
 
 ### 6.3 Uncertainty and design action
 
-The 81-condition grid combines common Ta/MRT offsets of -0.5/0/+0.5°C, opposing zone offsets of -0.5/0/+0.5°C, clothing offsets of -0.1/0/+0.1 clo and screening thresholds 0.4/0.5/0.6. These are equal-weighted grid points for diagnosis, not probabilities or calibrated instrument errors. D0 wins 26, D4 wins 23, D5 wins 17, D1 wins 11, D6 wins 3 and D3 wins 1 condition. D2 wins none. D4 has lower nominal holdout maximum regret than D0 by 33.3%, so the first exploratory gate passes. The second fails at 54/81 versus the required 61/81 or more. Relaxing the regret tolerance from 0.01 to 0.02 still yields 54/81; relaxing the coverage gate from 75% to 70% still requires 57/81. Neither single relaxation changes the action. **Action: retain D0 as the constructed case comparison baseline, collect real plan, thermal and use evidence, then freeze and rerun the decision rule.** This does not establish that D0 is comfortable or preferable in a real building.
+The 81-condition grid combines common Ta/MRT offsets of -0.5/0/+0.5°C, opposing zone offsets of -0.5/0/+0.5°C, clothing offsets of -0.1/0/+0.1 clo and screening thresholds 0.4/0.5/0.6. These are equal-weighted grid points for diagnosis, not probabilities or calibrated instrument errors. D0 wins 26, D4 wins 23, D5 wins 17, D1 wins 11, D6 wins 3 and D3 wins 1 condition. D2 wins none. D4 has lower nominal holdout maximum regret than D0 by 33.3%, so the first exploratory gate passes. The second fails at 54/81 versus the required 61/81 or more. Relaxing the regret tolerance from 0.01 to 0.02 still yields 54/81; relaxing the coverage gate from 75% to 70% still requires 57/81. Neither single relaxation changes the action. **Action: keep the 9/3 reference split, collect real plan, thermal and use evidence, then freeze and rerun the decision rule.** This does not establish that D0 is comfortable or preferable in a real building.
 
 What remains untrusted: actual zone temperatures and radiant conditions, valid met/clo profiles for occupants, accessible/usable capacity, the behavioural plausibility of managed allocation, the omission of energy and construction cost, and the model's relation to observed thermal votes. A real A4 study should register the candidate set and gate, measure local conditions over relevant periods, map capacity and accessibility from a plan, observe occupancy and moves, record occupant votes, and compare predicted versus observed outcomes.
+
+<!-- page -->
 
 ## 7. AI-Assisted Fact-Checking Card
 
 ### Decision audit for the 6/6 claim
 
-On 18 November 2026 the author requested a check of whether 6/6 remains robust, with the inputs, expected result, observed result and resulting revision recorded. This prompt summary comes from the current Codex chat. Codex (GPT-6.2 Astra, default collaboration mode) assisted with the calculation check and report wording. The original pilot model, settings and verbatim prompts are undocumented.
+On 18 November 2026 the author requested a check of whether 6/6 remains robust, with the inputs, expected result, observed result and resulting revision recorded. This prompt summary comes from the current Codex chat. Codex (GPT-6.2 Astra, default collaboration mode) assisted with the calculation check and report wording. The pilot summary records the requested CBE reference calculation, same-plan seating alternatives, English interface and six A3 components. Its evidence includes 12 deployment comparisons, 13 pilot tests and a manual allocation check. These details come from the retained pilot assistance summary. The original model, settings and verbatim prompts remain unknown.
 
 | Audit item | Record |
 |---|---|
@@ -181,7 +187,7 @@ On 18 November 2026 the author requested a check of whether 6/6 remains robust, 
 | Saved inputs and outputs | The pilot input is examples/minimal/project.json. The expanded input is examples/extended-a3/project.json. The comparison is in coursework/extended_matrix.csv and the checked scores are in coursework/extended_results.json. |
 | Expected result and basis | The robustness claim requires 6/6 to remain a minimax winner when all seven feasible splits compete on S0-S2. This is a retrospective test of the pilot claim. For the present rerun, verification/smoke_check.py already records the expected input hash, 91 cells and D4. |
 | Observed result | The smoke check passed. Maximum development regret was 0.1139 for 6/6 and 0.1052 for 7/5. Their difference of 0.0086 places both within the exploratory 0.01 band. |
-| Judgment and consequence | Reject the claim that 6/6 wins across the expanded candidate set. Report 7/5 as nominal winner and keep 6/6 as near-optimal. The action gate retains D0 as the constructed case comparison baseline. |
+| Judgment and consequence | Reject the claim that 6/6 wins across the expanded candidate set. Report 7/5 as nominal winner and keep 6/6 as near-optimal. The action gate supports keeping the 9/3 reference split. |
 | Reproducibility and follow-up | The saved input and script reproduce the numerical check. Exact regeneration of the AI wording is uncertain. The current request is retained in the project chat. No original pilot transcript or dated peer feedback is documented here. Field use requires measured thermal conditions and observed seating. |
 
 | AI-assisted claim or output | Evidence and manual check | Verdict | Action |
@@ -189,7 +195,7 @@ On 18 November 2026 the author requested a check of whether 6/6 remains robust, 
 | "6/6 is the robust spatial design" | Original three-candidate analysis; seven-candidate rerun selects 7/5. | **Reject** as a general claim | Replace with candidate-set-specific result; report D4 for the expanded set. |
 | "Pinned CBE PMV is numerically integrated correctly" | Six pythermalcomfort cross-checks: max PMV difference 0.001497; 12 same-source deployment cases; inspect all six-factor inputs. | **Accept**, limited to numerical integration | Preserve case ledger and version pins; do not infer field accuracy. |
 | "D4 reduces regret relative to D0" | Inspect ten-holdout maximum regrets 0.1403 and 0.2105; recompute ratio from unrounded JSON. | **Accept** for the hypothetical model | State 33.3% model improvement and its exact comparison. |
-| "D4 should replace D0 in a real shared room" | No surveyed plan, measured thermal field, occupancy observations or pre-registered rule; stress gate fails. | **Reject** | Retain D0 as the constructed case comparison baseline pending site evidence and a prospective field decision. |
+| "D4 should replace D0 in a real shared room" | No surveyed plan, measured thermal field, occupancy observations or pre-registered rule; stress gate fails. | **Reject** | keep the 9/3 reference split pending site evidence and a prospective field decision. |
 | "The 20% threshold was prespecified" | No timestamped or committed preregistration before the original holdout result. | **Reject** | Mark both the earlier threshold and revised action gate post hoc exploratory. |
 | "The temperature contrast represents a typical reading room" | No source supports this exact simultaneous 23.5/27.5°C pair at this site. | **Pending** | Use measured or validated local inputs before claiming representativeness. |
 

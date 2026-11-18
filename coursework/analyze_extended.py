@@ -49,7 +49,7 @@ def figures(project,result,ppd,summary):
     import numpy as np
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10})
     out=ROOT/'coursework'
-    ds=project['designs'];ss=project['scenarios'];ids=[d['id'] for d in ds]
+    ds=sorted(project['designs'], key=lambda design: design['seats']['Z1'], reverse=True);ss=project['scenarios'];ids=[d['id'] for d in ds]
     fig,ax=plt.subplots(figsize=(10,4),layout='constrained')
     positions=np.arange(len(ds));cool=[d['seats']['Z1'] for d in ds]
     ax.bar(positions,cool,color='#397d83',label='Z1 cooler')
